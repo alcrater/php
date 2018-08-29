@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form method="get" action"">
+    <form method="get" action="">
         <input type="text" name="first"><br>
         <input type="text" name="last"><br>
 
