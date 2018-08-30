@@ -11,7 +11,7 @@
 <body>
     <form method="get" action="">
         <input type="text" name="first" placeholder="first"><br>
-        <input type="text" name="last" value="last"><br>
+        <input type="text" name="last" placeholder="last"><br>
         <input type="submit" value="go">
     </form>
 
