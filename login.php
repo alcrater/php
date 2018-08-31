@@ -26,7 +26,7 @@
 <?php
 if (isset($username) || isset($password)) {
     if ($username == "audrey" && $password == "password") {
-        $_SESSION[ 'username'] == $username;
+        $_SESSION[ 'username'] = $username;
     }
 }
 
