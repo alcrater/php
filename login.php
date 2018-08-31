@@ -22,7 +22,7 @@
     </form>
 
 <?php
-if{isset($username) || isset($password))  {
+if (isset($username) || isset($password))  {
 echo "Username was " + $username;
 echo "<br>";
 echo "Password was " + $password; 
