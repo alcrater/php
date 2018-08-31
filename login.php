@@ -10,22 +10,23 @@
 </head>
 
 <?php
- $username = $_GET['username'];
- $password = $_GET['password'];
+ $username = $_POST['username'];
+ $password = $_POST['password'];
  ?>
 
 <body>
-    <form method="get" action="">
+    <form method="post" action="">
         <input type="text" name="username" placeholder="enter username"><br>
         <input type="password" name="password" ><br>
         <input type="submit" value="go">
     </form>
 
 <?php
+if{isset($username) || isset($password))  {
 echo "Username was " + $username;
 echo "<br>";
 echo "Password was " + $password; 
 ?>
-
+}
 </body>
 </html>
