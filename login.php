@@ -30,7 +30,7 @@ if (isset($_POST['Logout'])){
     </form>
 
 <?php
-if (isset($username) || isset($password)) {
+if (isset($username) && isset($password)) {
     if ($username == "audrey" && $password == "password") {
         $_SESSION['username'] = $username;
     }
