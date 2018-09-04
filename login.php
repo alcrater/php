@@ -14,11 +14,13 @@
 <?php
  $username = $_POST['username'];
  $password = $_POST['password'];
- ?>
+
 
 if (isset($_POST['Logout'])){
   unset($_SESSION['username']);
 }
+?>
+
 <body>
     <form method="post" action="">
         <input type="text" name="username" placeholder="enter username"><br>
