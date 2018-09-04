@@ -20,13 +20,14 @@
     <form method="post" action="">
         <input type="text" name="username" placeholder="enter username"><br>
         <input type="password" name="password" ><br>
-        <input type="submit" value="go">
+        <input type="submit" value="go"><br>
+        <input type="submit" name="Logout" value="Logout">
     </form>
 
 <?php
 if (isset($username) || isset($password)) {
     if ($username == "audrey" && $password == "password") {
-        $_SESSION[ 'username'] = $username;
+        $_SESSION['username'] = $username;
     }
 }
 
