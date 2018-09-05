@@ -1,14 +1,16 @@
 <?php
 session_start();
 require('dbconnection.php');
+
+if (isset($_POST['Logout'])){
+  unset($_SESSION['username']);
+
+$username = $_POST['username'];
+ $password = $_POST['password'];
+
+ $sql = "SELECT username, password FROM users WHERE username = $username";
+}
 ?>
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -21,15 +23,6 @@ require('dbconnection.php');
     <script src="main.js"></script>
 </head>
 
-<?php
- $username = $_POST['username'];
- $password = $_POST['password'];
-
-
-if (isset($_POST['Logout'])){
-  unset($_SESSION['username']);
-}
-?>
 
 <body>
     <form method="post" action="">
