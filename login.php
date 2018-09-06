@@ -17,8 +17,9 @@ if (isset($_POST['Logout'])){
 //Extracting the return query information
     while($row as $result->fetch_assoc()) {
 //$row['username'] is value from database        
-       if ($username ==  $row['username'] && $password == $row['password']); 
+       if ($username ==  $row['username'] && $password == $row['password']); {
        $_SESSION['username'] = $username;
+      }
     }
 }
 ?>
