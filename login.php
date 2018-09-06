@@ -3,12 +3,23 @@ session_start();
 require('dbconnection.php');
 
 if (isset($_POST['Logout'])){
-  unset($_SESSION['username']);
+    unset($_SESSION['username']);
 
-$username = $_POST['username'];
- $password = $_POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
- $sql = "SELECT username, password FROM users WHERE username = $username";
+//SQL statement to execute
+    $sql = "SELECT username, password FROM users WHERE username = $username";
+ 
+ //Execute the sql and return array to result
+    $result= $conn->query($sql);
+
+//Extracting the return query information
+    while($row as $result->fetch_assoc()) {
+//$row['username'] is value from database        
+       if ($username ==  $row['username'] && $password == $row['password']); 
+       $_SESSION['username'] = $username;
+    }
 }
 ?>
 
@@ -33,14 +44,7 @@ $username = $_POST['username'];
     </form>
 
 <?php
-if (isset($username) && isset($password)) {
-    if ($username == "audrey" && $password == "password") {
-        $_SESSION['username'] = $username;
-    }
-}
-
 echo "Logged in as: " . $_SESSION['username'];
-
 ?>
 
 
