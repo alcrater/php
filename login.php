@@ -2,9 +2,8 @@
 session_start();
 require('dbconnection.php');
 
-if (isset($_POST['Logout'])){
-    unset($_SESSION['username']);
-
+if (isset($_POST['username'])){
+   
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -35,6 +34,11 @@ if (isset($_POST['Logout'])){
     <script src="main.js"></script>
 </head>
 
+<?php 
+if (isset($_POST['Logout'])){
+    unset($_SESSION['username']);
+}
+?>
 
 <body>
     <form method="post" action="">
