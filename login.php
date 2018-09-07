@@ -19,9 +19,9 @@ if (isset($_POST['Logout'])){
 //$row['username'] is value from database        
        if ($username ==  $row['username'] && $password == $row['password']); {
        $_SESSION['username'] = $username;
-      }
-    }
-}
+      }//closes if statement
+    }//closes while loop
+}//closes POST Condition
 ?>
 
 <!DOCTYPE html>
