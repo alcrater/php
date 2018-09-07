@@ -8,8 +8,8 @@ if (isset($_POST['Logout'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-//SQL statement to execute
-    $sql = "SELECT username, password FROM users WHERE username = $username";
+//SQL statement to execute. Surround variables with single quotes
+    $sql = "SELECT username, password FROM users WHERE username ='$username'";
  
  //Execute the sql and return array to result
     $result= $conn->query($sql);
