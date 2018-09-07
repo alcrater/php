@@ -14,9 +14,10 @@ if (isset($_POST['username'])){
     $result= $conn->query($sql);
 
 //Extracting the return query information
-    while($row as $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()) {
+
 //$row['username'] is value from database        
-       if ($username ==  $row['username'] && $password == $row['password']); {
+       if ($username == $row['username'] && $password == $row['password']); {
        $_SESSION['username'] = $username;
       }//closes if statement
     }//closes while loop
