@@ -17,7 +17,7 @@ if (isset($_POST['username'])){
     while($row = $result->fetch_assoc()) {
 
 //$row['username'] is value from database        
-       if ($username == $row['username'] && $password_verify($password, $row['password']); {
+       if ($username == $row['username'] && password_verify($password, $row['password']); {
        $_SESSION['username'] = $username;
       }//closes if statement
     }//closes while loop
