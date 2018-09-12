@@ -13,12 +13,9 @@
     var_dump($_FILES['upload']);
 
 if (isset($_FILES['upload'])) {
-    echo $target_dir . "br>";
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES['upload'] ['name']);
-    echo $target_dir . "br>";
-    
-    move_uploaded_file($_FILES['upload'] ['tmp_name', $target_file]);
+    move_uploaded_file($_FILES["upload"] ["tmp_name"], $target_file]);
 
 }
 
