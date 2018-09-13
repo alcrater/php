@@ -8,9 +8,9 @@
   header('Location: login.php'); //header always gets loaded before html
  }
 
-    var_dump($_POST['upload']);
-    echo "<hr />";
-    var_dump($_FILES['upload']);
+    // var_dump($_POST['upload']);
+    // echo "<hr />";
+    // var_dump($_FILES['upload']);
 
 if (isset($_FILES['upload'])) {
     $target_dir = "uploads/";
