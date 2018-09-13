@@ -14,8 +14,8 @@
 
 if (isset($_FILES['upload'])) {
     $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES['upload'] ['name']);
-    move_uploaded_file($_FILES["upload"] ["tmp_name"], $target_file]);
+    $target_file = $target_dir . basename($_FILES['upload']['name']);
+    move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file]);
 
 }
 
