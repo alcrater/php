@@ -5,6 +5,7 @@ require('dbconnection.php');
 if (isset($_POST['username'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
+     header
   
     //SQL statement to execute. surround variables with single qoates
     $sql = "SELECT username, password FROM users where username = '$username'";
@@ -17,7 +18,7 @@ if (isset($_POST['username'])){
       //username & password is the field name in database, use same name and capitalization
       if ($username == $row['username'] && password_verify($password, $row['password']) ){
         $_SESSION['username'] = $username;
-      } //closes if statement
+             } //closes if statement
   
     } //closes while loop
   
@@ -36,9 +37,21 @@ if (isset($_POST['username'])){
   if(isset($_POST['logout'])) {
     unset($_SESSION['username']);
   }
+
+  
+
    ?>
   
     <body>
+  <?php
+
+    <a href="register.php">Register</a>
+    if(isset($_SESSION['username'])) {
+   echo " <a href=\"upload.php\"> | Upload</a>";
+  }
+  ?>
+    <br />
+
       <form method="post" action="">
         <input type="text" name="username" placeholder="enter username"> <br />
         <input type="password" name="password" >
