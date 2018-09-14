@@ -15,16 +15,21 @@
 if (isset($_FILES['upload'])) {
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES['upload']['name']);
-    $uploadVerification= true;
+    $uploadVerification =true;
 
 //lets check to see if file already exists.
 
 if(file_exists($target_file)) {
-    $uploadVerification = false;
+    $uploadVerification =false;
     $ret = "Sorry file already exists";
+
 }
 
+if($_FILES['upload']['size'] > ?????) {
+    $uploadVerification =false;
+    $ret = "Sorry file is to big";
 
+}
     if ($uploadVerification) {
     move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
     }
