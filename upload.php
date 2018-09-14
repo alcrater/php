@@ -41,4 +41,5 @@ if(file_exists($target_file)) {
  </form>
 
  <h5 style="color:red;">
- <?php if ($ret) {echo $ret;} ?/</h5>
+ <?php if ($ret) {echo $ret;} ?>
+ </h5>
