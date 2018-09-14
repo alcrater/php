@@ -1,12 +1,12 @@
 <?php
  if (!isset($_SESSION)) {
      session_start();
- }
+    }
 
  if (!isset($_SESSION['username'])) {
   //die ("Don't even think about it, Kill page");
   header('Location: login.php'); //header always gets loaded before html
- }
+    }
 
     // var_dump($_POST['upload']);
     // echo "<hr />";
@@ -22,14 +22,13 @@ if (isset($_FILES['upload'])) {
 if(file_exists($target_file)) {
     $uploadVerification =false;
     $ret = "Sorry file already exists";
+    }
 
-}
-
-if($_FILES['upload']['size'] > ?????) {
+if($_FILES['upload']['size'] > 2000000 ) {
     $uploadVerification =false;
     $ret = "Sorry file is to big";
+    }
 
-}
     if ($uploadVerification) {
     move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
     }
