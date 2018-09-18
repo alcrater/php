@@ -32,7 +32,7 @@ if(file_exists($target_file)) {
     }
 
 //check for type // Finish adding code from sheet from specncer
-$file_type = $_FILES['upload']['type']    
+//$file_type = $_FILES['upload']['type']    
 
 if($_FILES['upload']['size'] > 2000000 ) {
     $uploadVerification =false;
