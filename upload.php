@@ -13,6 +13,13 @@
     // var_dump($_FILES['upload']);
 
 if (isset($_FILES['upload'])) {
+
+    //check to see if uploads folder exists
+        if (file_exists("uploads")) ===false);
+           //if uploads folder does not exists create it
+         mkdir("uploads/");
+}
+
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES['upload']['name']);
     $uploadVerification =true;
@@ -23,6 +30,9 @@ if(file_exists($target_file)) {
     $uploadVerification =false;
     $ret = "Sorry file already exists";
     }
+
+//check for type // Finish adding code from sheet from specncer
+$file_type = $_FILES['upload']['type']    
 
 if($_FILES['upload']['size'] > 2000000 ) {
     $uploadVerification =false;
