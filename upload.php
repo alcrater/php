@@ -84,12 +84,12 @@ if (!isset($_SESSION['username'])) {
    ?>
   
    Upload your file.
-  </br>
+  <br />
    <!--info on w3schools-->
    <form action="" method="post" enctype="multipart/form-data">
      <input type="file" name="upload">
-   </br>
-   </br>
+   <br />
+   <br />
    <input type="submit">
   
    </form>
