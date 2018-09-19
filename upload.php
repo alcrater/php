@@ -28,10 +28,10 @@ if (!isset($_SESSION['username'])) {
     }
   
      if(!file_exists("uploads/" . $_SESSION['username'])){
-      mkdir("uploads/" . $_SESSION['username']);
+      mkdir("uploads/" . $_SESSION['username'], 0777, true);
      }
 
-    $target_dir = "uploads/" . $_SESSION['username'];
+    $target_dir = "uploads/" . $_SESSION['username'] . "/";
 
     $target_file = $target_dir . basename($_FILES['upload']['name']);
   
