@@ -15,7 +15,7 @@ require('dbconnection.php');
 
 //create the sql query
 
-$sql = "SELECT * from users";
+$sql = "SELECT * from users;";
 
 //execute the sql query
 $results$conn-->($sql);
