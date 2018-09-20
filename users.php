@@ -9,7 +9,8 @@ if (!isset($_SESSION['username'])) {
     header('Location: login.php'); 
  }
 
-//Bring in database connection
+
+ //Bring in database connection
 
 require('dbconnection.php');
 
