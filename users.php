@@ -19,6 +19,8 @@ $sql = "SELECT * from users;";
 $result = $conn->query($sql);
 //close db connection
 $conn->close();
+
+
  ?>
 
 
@@ -44,20 +46,7 @@ $conn->close();
 
 <?php
 //Loop through all table records
-while($row = $result->fetch_assoc()){
-    echo "<tr>";
-    echo "<td>" .$row['userid'] ."</td>";
-    echo "<td>" .$row['username'] ."</td>";
-    echo "<td>" .$row['password'] ."</td>";
-    echo "<td>
-    <form action=\"\" method=\"post\">
-    <input name=\"id\" type=\"hidden\" value=\"" . $row['userid'] . "\">
-    <input type=\"submit\" value=\"Delete\">
-    </form>
-    </td>";
-    echo "</tr>";
-}
-?>
+
 </table>
     
 </body>
