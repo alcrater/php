@@ -1,29 +1,26 @@
 <?php
-//Check to see if session has started
+// check to see if session is started
 if (!isset($_SESSION)) {
-    session_start();
-   }
-
-//if username not logged in send them to log in page
+  session_start();
+}
+//if username not logged in, will move them to login page
 if (!isset($_SESSION['username'])) {
-    header('Location: login.php'); 
- }
+   header('Location: login.php');
+}
 
+//bring in database connections
+//remember if your connection page is named different change
+require('dbConnect.php');
 
- //Bring in database connection
-
-require('dbconnection.php');
-
-//create the sql query
-
+//create the sql Query
 $sql = "SELECT * from users;";
 
-//execute the sql query
-$results$conn-->($sql);
+//exacute the sql query
+$result = $conn->query($sql);
+//close db connection
+$conn->close();
+ ?>
 
-//close the connection
-$conn -->close();
-?>
 
 <<!DOCTYPE html>
 <html>
@@ -53,15 +50,14 @@ while($row = $result->fetch_assoc()){
     echo "<td>" .$row['username'] ."</td>";
     echo "<td>" .$row['password'] ."</td>";
     echo "<td>
-    <form action="" method="post">
-    <input type="text">
-    <input type="submit">
+    <form action=\"\" method=\"post\">
+    <input name=\"id\" type=\"hidden\" value=\"" . $row['userid'] . "\">
+    <input type=\"submit\" value=\"Delete\">
     </form>
     </td>";
     echo "</tr>";
 }
 ?>
-
 </table>
     
 </body>
