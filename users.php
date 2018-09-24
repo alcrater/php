@@ -13,7 +13,7 @@ if (!isset($_SESSION['username'])) {
 require('dbconnection.php');
 
 if (isset($_POST['id']) && isset($_POST['delete'])) {
-  $sql = "DELETE FROM users WHERE userid =" . $_POST['id'];
+  $sql = "DELETE FROM users WHERE userid = " . $_POST['id'];
   $result = $conn->query($sql);  
 }
 
