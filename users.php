@@ -53,8 +53,8 @@ while($row = $result->fetch_assoc()){
   echo "<td>" . $row['password'] . "</td>";
   echo "<td>
   <form action=\"\" method=\"post\">
-    <input name = \"id\" type=\"hidden\" value=\"" . $row['userid'] . "\">
-    <input type =\"submit\" value=\"delete\" name=\"delete\">
+    <input name=\"id\" type=\"hidden\" value=\"" . $row['userid'] . "\">
+    <input type=\"submit\" value=\"delete\" name=\"delete\">
   </form>  </td>";
 
 
