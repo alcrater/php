@@ -8,6 +8,20 @@ if (!isset($_SESSION)){
     header('Location: login.php');
   }
   
+  if(isset($_POST['Submit'])){//if the submit button is clicked
+	
+    $userid = $_POST['updateuserid'];
+    
+	$username = $_POST['updateusername'];
+	
+	$password = $_POST['updatepassword'];
+	
+	$update = "UPDATE users SET userid='$userid', username='$username', password ='$password', WHERE userid = ".$userid;
+
+	$conn->query($update) or die("Cannot update");//update or error
+
+	}
+
   if (isset($_GET['id']) && $_GET['edit']=="edit") {
     require('dbconnection.php'); //bring in database connection
     $sql = "SELECT * from users where userid = " . $_GET['id']; //id is int datatype don't quote it
@@ -32,4 +46,9 @@ if (!isset($_SESSION)){
     echo "You should not be here.";
   }
   
+  if($update){//if the update worked
+	
+	echo "<b>Update successful!</b>";
+		
+}  
 ?>
