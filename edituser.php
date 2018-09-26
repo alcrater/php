@@ -8,6 +8,8 @@ if (!isset($_SESSION)){
     header('Location: login.php');
   }
   
+ 
+
   if(isset($_POST['Submit'])){//if the submit button is clicked
 	
     $userid = $_POST['updateuserid'];
@@ -16,9 +18,9 @@ if (!isset($_SESSION)){
 	
 	$password = $_POST['updatepassword'];
 	
-	$update = "UPDATE users SET userid='$userid', username='$username', password ='$password', WHERE userid = ".$userid;
+	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = ".$userid;
 
-	$conn->query($update) or die("Cannot update");//update or error
+	$conn->query($update);//update or error
 
 	}
 
@@ -46,9 +48,5 @@ if (!isset($_SESSION)){
     echo "You should not be here.";
   }
   
-  if($update){//if the update worked
-	
-	echo "<b>Update successful!</b>";
-		
-}  
+  
 ?>
