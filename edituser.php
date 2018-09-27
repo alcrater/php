@@ -12,8 +12,7 @@ if (!isset($_SESSION)){
     
     require('dbconnection.php');
     
-    $password_hash = $_POST['PASSWORD_BCRYPT'];
-    
+      
     $userid = $_POST['userid'];
     
   	$username = $_POST['username'];
