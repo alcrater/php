@@ -11,8 +11,8 @@ if (!isset($_SESSION)){
    if(isset($_POST['Submit'])){//if the submit button is clicked
     
     require('dbconnection.php');
-
-    password_hash($password, PASSWORD_BCRYPT);
+    
+    $password_hash = $_POST['PASSWORD_BCRYPT'];
     
     $userid = $_POST['userid'];
     
