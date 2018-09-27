@@ -14,17 +14,34 @@ if (!isset($_SESSION)){
   
     require('dbconnection.php');
 
-    $userid = $_POST['updateuserid'];
     
-  	$username = $_POST['updateusername'];
+  	$username = $_POST['username'];
 	
-	  $password = $_POST['updatepassword'];
-	
-	  $sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = ".$userid;
+    $password = $_POST['password'];
+    
+    $newpassword = $_POST['newpassword']
 
-	  $conn->query($sql);//update 
-
-	}
+    $confirmnewpassword = $_POST['confirmnewpassword']
+  
+    $result = mysql_query("SELECT password FROM users WHERE login='$username'");
+        if(!$result)
+        {
+        echo "The username you entered does not exist";
+        }
+        else if($password!= mysql_result($result, 0))
+        {
+        echo "You entered an incorrect password";
+        }
+        if($newpassword=$confirmnewpassword)
+        $sql=mysql_query("UPDATE users SET password='$newpassword' where login='$username'");
+        if($sql)
+        {
+        echo "Congratulations You have successfully changed your password";
+        }
+       else
+        {
+       echo "The new password and confirm new password fields must be the same";
+       }
 
   if (isset($_GET['id']) && $_GET['edit']=="edit") {
     require('dbconnection.php'); //bring in database connection
