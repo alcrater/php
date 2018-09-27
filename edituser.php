@@ -20,7 +20,11 @@ if (!isset($_SESSION)){
   
 	  $sql = "UPDATE users SET username=\"$username\", password = \"password\"  WHERE userid = $userid";
 
-  	$result = $conn->query($sql);//update
+    $result = $conn->query($sql);//update
+    
+    var_dump($result);
+
+    header('Location: users.php');
 
 	}//end if post
 
@@ -29,7 +33,7 @@ if (!isset($_SESSION)){
     $sql = "SELECT * from users where userid = " . $_GET['id']; //id is int datatype don't quote it
     $result = $conn->query($sql);
   
-    echo "<form action=\"\" method=\"post\">";
+    echo "<form action=\"?userid=\" method=\"post\">";
   
     while ($row = $result->fetch_assoc()) {
       echo "<input type=\"text\" disabled value=\"" . $row['userid'] . "\">";
