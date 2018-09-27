@@ -16,13 +16,11 @@ if (!isset($_SESSION)){
     
     $username = $_POST['username'];
     
-    $password = $_POST['password'];
+    $password = password_hash($password, PASSWORD_BCRYPT);
   
-	  $sql = "UPDATE users SET username=\"$username\", password = \"password\"  WHERE userid = $userid";
+	  $sql = "UPDATE users SET username=\"$username\", password = \"$password\"  WHERE userid = $userid";
 
     $result = $conn->query($sql);//update
-    
-    var_dump($result);
 
     header('Location: users.php');
 
