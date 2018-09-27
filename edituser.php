@@ -8,27 +8,16 @@ if (!isset($_SESSION)){
     header('Location: login.php');
   }
   
-   
-    
-    
-
-    if(isset($_POST['submit'])){ // Fetching variables of the form which travels in URL
-      require('dbconnection.php');
-
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-if($username !=''||$password !=''){
-$query = sql_query($connection,"insert into users(username,password) values ('$username', '$password')");
-echo "<br/><br/><span>Data Inserted successfully...!!</span>";
-}
-else{
-echo "<p>Insertion Failed <br/> Some Fields are Blank....!!</p>";
-}
-}
+  if (isset($_POST['submit']))
+  {
+  require('dbconnection.php'); //bring in database connection
+  
+  $password = password_hash($password, PASSWORD_BCRYPT);
+  $sql ="UPDATE users set username = '" . $_POST['username'] . "', password = '". $_POST['password'] ."' where userid = '" . $_POST['userid'] . "'";
+  $conn->query($sql);
+  }
 
   
-
   if (isset($_GET['id']) && $_GET['edit']=="edit") {
     require('dbconnection.php'); //bring in database connection
     $sql = "SELECT * from users where userid = " . $_GET['id']; //id is int datatype don't quote it
