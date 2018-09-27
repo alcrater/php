@@ -32,7 +32,7 @@ if (!isset($_SESSION)){
     echo "<form action=\"\" method=\"post\">";
   
     while ($row = $result->fetch_assoc()) {
-      echo "<input name=\"text\" disabled value=\"" . $row['userid'] . "\">";
+      echo "<input type=\"text\" disabled value=\"" . $row['userid'] . "\">";
       echo "<input name=\"userid\" type=\"hidden\"  value=\"" . $row['userid'] . "\">";
       echo "<br />";
       echo "<input name=\"username\" type=\"text\" value=\"" . $row['username'] . "\">";
