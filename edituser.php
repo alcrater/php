@@ -20,9 +20,9 @@ if (!isset($_SESSION)){
 	
   	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = '$userid'";
 
-  	$conn->query($update);//update or error
+  	$conn->query($sql);//update
 
-	}
+	}//end if post
 
   if (isset($_GET['id']) && $_GET['edit']=="edit") {
     require('dbconnection.php'); //bring in database connection
@@ -46,7 +46,7 @@ if (!isset($_SESSION)){
   
   } else {
     echo "You should not be here.";
-  }
+  }//end if (isset get)
   
   
 ?>
