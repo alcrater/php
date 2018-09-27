@@ -8,16 +8,22 @@ if (!isset($_SESSION)){
     header('Location: login.php');
   }
   
-  if (isset($_POST['submit']))
-  {
-  require('dbconnection.php'); //bring in database connection
-  
-  $password = password_hash($password, PASSWORD_BCRYPT);
-  $sql ="UPDATE users set username = '" . $_POST['username'] . "', password = '". $_POST['password'] ."' where userid = '" . $_POST['userid'] . "'";
-  $conn->query($sql);
-  }
+   if(isset($_POST['Submit'])){//if the submit button is clicked
+    
+    require('dbconnection.php');
+    
+    $userid = $_POST['userid'];
+    
+  	$username = $_POST['username'];
+	
+	  $password = $_POST['password'];
+	
+  	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = ".$userid;
 
-  
+  	$conn->query($sql);//update or error
+
+	}
+
   if (isset($_GET['id']) && $_GET['edit']=="edit") {
     require('dbconnection.php'); //bring in database connection
     $sql = "SELECT * from users where userid = " . $_GET['id']; //id is int datatype don't quote it
