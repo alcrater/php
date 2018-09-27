@@ -12,10 +12,15 @@ if (!isset($_SESSION)){
     
     require('dbconnection.php');
     
-    $password = password_hash($password, PASSWORD_BCRYPT);
-  $sql ="UPDATE users set username = '" . $_POST['username'] . "', password = '". $_POST['password'] ."' where userid = '" . $_POST['userid'] . "'";
-  $conn->query($sql);
-}
+    $userid = $_POST['userid'];
+    
+  	$username = $_POST['username'];
+  
+	  $sql = "UPDATE users SET username=\"$username\" WHERE userid = $userid";
+
+  	$result = $conn->query($sql);//update
+
+	}//end if post
 
   if (isset($_GET['id']) && $_GET['edit']=="edit") {
     require('dbconnection.php'); //bring in database connection
