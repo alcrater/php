@@ -18,7 +18,7 @@ if (!isset($_SESSION)){
 	
 	  $password = $_POST['password'];
 	
-  	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = ".$userid;
+  	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = '$userid'";
 
   	$conn->query($sql);//update or error
 
