@@ -29,7 +29,7 @@ if (!isset($_SESSION)){
     $sql = "SELECT * from users where userid = " . $_GET['id']; //id is int datatype don't quote it
     $result = $conn->query($sql);
   
-    echo "<form action=\"\" method=\"post\">";
+    echo "<form action=\"\" method=\"get\">";
   
     while ($row = $result->fetch_assoc()) {
       echo "<input name=\"userid\" type=\"text\" disabled value=\"" . $row['userid'] . "\">";
