@@ -20,7 +20,7 @@ if (!isset($_SESSION)){
 	
   	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = '$userid'";
 
-  	$conn->query($sql);//update or error
+  	$conn->query($update);//update or error
 
 	}
 
