@@ -11,11 +11,13 @@ if (!isset($_SESSION)){
    if(isset($_POST['Submit'])){//if the submit button is clicked
     
     require('dbconnection.php');
+
+    password_hash($password, PASSWORD_BCRYPT);
     
     $userid = $_POST['userid'];
     
   	$username = $_POST['username'];
-	
+  
 	  $password = $_POST['password'];
 	
   	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = '$userid'";
