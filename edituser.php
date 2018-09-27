@@ -8,22 +8,14 @@ if (!isset($_SESSION)){
     header('Location: login.php');
   }
   
-   if(isset($_POST['Submit'])){//if the submit button is clicked
-    
-    require('dbconnection.php');
-    
-      
-    $userid = $_POST['userid'];
-    
-  	$username = $_POST['username'];
+  if (isset($_POST['submit']))
+  {
+  require('dbconnect.php'); //bring in database connection
   
-	  $password = $_POST['password'];
-	
-  	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = '$userid'";
-
-  	$conn->query($sql);//update
-
-	}//end if post
+  $password = password_hash($password, PASSWORD_BCRYPT);
+  $sql ="UPDATE users set username = '" . $_POST['username'] . "', password = '". $_POST['password'] ."' where userid = '" . $_POST['userid'] . "'";
+  $conn->query($sql);
+  }
 
   if (isset($_GET['id']) && $_GET['edit']=="edit") {
     require('dbconnection.php'); //bring in database connection
@@ -33,7 +25,7 @@ if (!isset($_SESSION)){
     echo "<form action=\"\" method=\"post\">";
   
     while ($row = $result->fetch_assoc()) {
-      echo "<input name=\"userid\" type=\"text\" disabled value=\"" . $row['userid'] . "\">";
+      echo "<input name=\"userid\" type=\"text\" hidden value=\"" . $row['userid'] . "\">";
       echo "<br />";
       echo "<input name=\"username\" type=\"text\" value=\"" . $row['username'] . "\">";
       echo "<br />";
