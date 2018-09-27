@@ -11,16 +11,18 @@ if (!isset($_SESSION)){
  
 
   if(isset($_POST['Submit'])){//if the submit button is clicked
-	
+  
+    require('dbconnection.php');
+
     $userid = $_POST['updateuserid'];
     
-	$username = $_POST['updateusername'];
+  	$username = $_POST['updateusername'];
 	
-	$password = $_POST['updatepassword'];
+	  $password = $_POST['updatepassword'];
 	
-	$sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = ".$userid;
+	  $sql = "UPDATE users SET username='$username', password ='$password', WHERE userid = ".$userid;
 
-	$conn->query($update);//update or error
+	  $conn->query($sql);//update 
 
 	}
 
