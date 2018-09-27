@@ -14,9 +14,11 @@ if (!isset($_SESSION)){
     
     $userid = $_POST['userid'];
     
-  	$username = $_POST['username'];
+    $username = $_POST['username'];
+    
+    $password = $_POST['password'];
   
-	  $sql = "UPDATE users SET username=\"$username\" WHERE userid = $userid";
+	  $sql = "UPDATE users SET username=\"$username\", password = \"password\"  WHERE userid = $userid";
 
   	$result = $conn->query($sql);//update
 
@@ -30,7 +32,7 @@ if (!isset($_SESSION)){
     echo "<form action=\"\" method=\"post\">";
   
     while ($row = $result->fetch_assoc()) {
-      echo "<input name=\"userid\" type=\"text\" disabled value=\"" . $row['userid'] . "\">";
+      echo "<input name=\"text\" disabled value=\"" . $row['userid'] . "\">";
       echo "<input name=\"userid\" type=\"hidden\"  value=\"" . $row['userid'] . "\">";
       echo "<br />";
       echo "<input name=\"username\" type=\"text\" value=\"" . $row['username'] . "\">";
