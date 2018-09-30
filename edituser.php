@@ -10,13 +10,13 @@ if (!isset($_SESSION)){
   
   
    if (isset($_SESSION['username'])) {
-   echo "<a href =\"upload.php\"> | Upload </a>";
+   echo "<a href =\"upload.php\">  Upload </a>";
    }
    if (isset($_SESSION['username'])) {
    echo "<a href =\"users.php\"> | Users </a>";
    }
   
-   
+
    if(isset($_POST['Submit'])){//if the submit button is clicked
     
     require('dbconnection.php');
