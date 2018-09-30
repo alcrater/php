@@ -10,7 +10,7 @@ if (!isset($_SESSION)){
   
     include '\users.php';
     include '\register.php';
-    include '\uploade.php'
+    include '\upload.php';
     
    if(isset($_POST['Submit'])){//if the submit button is clicked
     
