@@ -8,10 +8,15 @@ if (!isset($_SESSION)){
     header('Location: login.php');
    }
   
-    include '\users.php';
-    include '\register.php';
-    include '\upload.php';
-    
+  
+   if (isset($_SESSION['username'])) {
+   echo "<a href =\"upload.php\"> | Upload </a>";
+   }
+   if (isset($_SESSION['username'])) {
+   echo "<a href =\"users.php\"> | Users </a>";
+   }
+  
+   
    if(isset($_POST['Submit'])){//if the submit button is clicked
     
     require('dbconnection.php');
