@@ -7,10 +7,9 @@ if (!isset($_SESSION)){
   if (!isset($_SESSION['username'])){
     header('Location: login.php');
    }
-  
-  
+    
    if (isset($_SESSION['username'])) {
-   echo "<a href =\"upload.php\">  Upload </a>";
+   echo "<a href =\"upload.php\"> | Upload </a>";
    }
    if (isset($_SESSION['username'])) {
    echo "<a href =\"users.php\"> | Users </a>";
