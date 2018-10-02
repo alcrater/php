@@ -1,11 +1,14 @@
 <?php
 
 if (basename($_SERVER['PHP_SELF']) == 'users.php') {
-    echo "<a href='users.php'><b>Users</b></a>";
+    echo "<a href='users.php'><b>Users</b></a>".addClass("selected");
+    
 }else {
-    echo "<a href="uploads.php"><b>Uploads</b></a>";
+    echo "<a href=uploads.php><b>Uploads</b></a>"..addClass("selected");
+    
 } else {
-    echo "<a href=login.php')<b>Login</b></a>";
+    echo "<a href=login.php')<b>Login</b></a>".addClass("selected");
+    
 }
 
 // echo (basename($_SERVER['PHP_SELF']) == 'users.php') ? "<a href=users.php><strong>| Users |</strong></a>" : "<a href=users.php>| Users |</a>";
