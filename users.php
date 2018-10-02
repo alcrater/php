@@ -9,6 +9,16 @@ if (!isset($_SESSION['username'])){
   header('Location: login.php');
 }
 
+if (isset($_SESSION['username'])) {
+
+  require('navbar.php');
+
+  }
+
+
+
+
+
 //Bring in database connection
 require('dbconnection.php');
 
@@ -37,17 +47,8 @@ $conn->close();
   <body>
 
    <a href = "register.php">Register</a>
-   <?php
-
-  if (isset($_SESSION['username'])) {
-
-  require('navbar.php');
-
-    }
-
-
-
- ?>
+  
+ 
 
 
 <br />

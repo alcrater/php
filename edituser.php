@@ -8,12 +8,16 @@ if (!isset($_SESSION)){
     header('Location: login.php');
    }
     
+  
+
    if (isset($_SESSION['username'])) {
-   echo "<a href =\"upload.php\"> | Upload </a>";
-   }
-   if (isset($_SESSION['username'])) {
-   echo "<a href =\"users.php\"> | Users </a>";
-   }
+ 
+     require('navbar.php');
+ 
+     }
+ 
+ 
+ 
   
 
    if(isset($_POST['Submit'])){//if the submit button is clicked

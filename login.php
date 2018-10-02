@@ -6,6 +6,12 @@ if (isset($_POST['username'])){
   $username = $_POST['username'];
   $password = $_POST['password'];
 
+  if (isset($_SESSION['username'])) {
+
+    require('navbar.php');
+   
+   }
+
   //SQL statement to execute. surround variables with single qoates
   $sql = "SELECT username, password FROM users where username = '$username'";
   //execute sql and return the array to $result
@@ -45,11 +51,7 @@ if(isset($_POST['logout'])) {
     <a href = "register.php">Register</a>
     <?php
 
-if (isset($_SESSION['username'])) {
 
- require('navbar.php');
-
-}
 
 
 

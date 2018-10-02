@@ -12,11 +12,10 @@ if (!isset($_SESSION['username'])) {
   }
   
   if (isset($_SESSION['username'])) {
-    echo "<a href =\"upload.php\"> | Upload </a>";
-    }
-    if (isset($_SESSION['username'])) {
-    echo "<a href =\"users.php\"> | Users </a>";
-    }
+
+    require('navbar.php');
+   
+   }
     
   //takes whatever this is and tells you about it, good for trouble shooting
   var_dump($_FILES['upload']);
@@ -95,17 +94,12 @@ if (!isset($_SESSION['username'])) {
   
   
    ?>
-  <?php
-
-if (isset($_SESSION['username'])) {
-
- require('navbar.php');
-
-}
+ 
 
 
 
-  ?>
+
+
    Upload your file.
   <br />
    <!--info on w3schools-->
