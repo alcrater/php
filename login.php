@@ -1,16 +1,13 @@
 <?php
 session_start();
 require('dbconnection.php');
+require('navbar.php');
 
 if (isset($_POST['username'])){
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  if (isset($_SESSION['username'])) {
-
-    require('navbar.php');
-   
-   }
+ 
 
   //SQL statement to execute. surround variables with single qoates
   $sql = "SELECT username, password FROM users where username = '$username'";

@@ -6,15 +6,15 @@ if (!isset($_SESSION)){
   
   if (!isset($_SESSION['username'])){
     header('Location: login.php');
+    require('navbar.php');
    }
     
   
 
-   if (isset($_SESSION['username'])) {
+  
+    
  
-     require('navbar.php');
- 
-     }
+     
  
  
  

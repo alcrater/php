@@ -9,13 +9,11 @@ if (!isset($_SESSION['username'])) {
     //before html cant but put at bottom, must be at top
     //when you use header you need 'location: then where you are going to'
     header('Location: login.php'); //if you wanted https address you need full url
-  }
-  
-  if (isset($_SESSION['username'])) {
 
     require('navbar.php');
-   
-   }
+  }
+  
+ 
     
   //takes whatever this is and tells you about it, good for trouble shooting
   var_dump($_FILES['upload']);
