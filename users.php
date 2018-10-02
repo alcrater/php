@@ -7,7 +7,6 @@ if (!isset($_SESSION)){
 //If user is not logged in, send them to login page
 if (!isset($_SESSION['username'])){
   header('Location: login.php');
-  require('navbar.php');
 }
 
 
@@ -43,7 +42,13 @@ $conn->close();
   </head>
   <body>
 
-   <a href = "register.php">Register</a>
+   <?php
+   if (isset($_SESSION['username'])) {
+    require('navbar.php');
+
+    }
+
+    ?>
   
  
 

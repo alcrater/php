@@ -1,3 +1,5 @@
+
+
 <?php
 // check to see if session is started
 if (!isset($_SESSION)){
@@ -6,19 +8,13 @@ if (!isset($_SESSION)){
   
   if (!isset($_SESSION['username'])){
     header('Location: login.php');
-    require('navbar.php');
    }
     
-  
+   if (isset($_SESSION['username'])) {
+     require('navbar.php');
+     }
 
-  
-    
  
-     
- 
- 
- 
-  
 
    if(isset($_POST['Submit'])){//if the submit button is clicked
     
@@ -36,8 +32,13 @@ if (!isset($_SESSION)){
 
     header('Location: users.php');
 
-	}//end if post
+  }//end if post
+  
+  
 
+  
+    
+  
   if (isset($_GET['id']) && $_GET['edit']=="edit") {
     require('dbconnection.php'); //bring in database connection
     $sql = "SELECT * from users where userid = " . $_GET['id']; //id is int datatype don't quote it

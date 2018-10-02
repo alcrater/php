@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('dbconnection.php');
-require('navbar.php');
+
 
 if (isset($_POST['username'])){
   $username = $_POST['username'];

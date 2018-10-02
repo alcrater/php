@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
     //when you use header you need 'location: then where you are going to'
     header('Location: login.php'); //if you wanted https address you need full url
 
-    require('navbar.php');
+   
   }
   
  
@@ -93,10 +93,14 @@ if (!isset($_SESSION['username'])) {
   
    ?>
  
+  <?php
 
+if (isset($_SESSION['username'])) {
+  require('navbar.php');
 
+  }
 
-
+  ?>
 
    Upload your file.
   <br />

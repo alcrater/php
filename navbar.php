@@ -23,6 +23,6 @@ echo (basename($_SERVER['PHP_SELF']) == 'upload.php') ? "<a href=upload.php><str
 
 echo (basename($_SERVER['PHP_SELF']) == 'login.php') ? "<a href=login.php><strong> Login | </strong></a>" : "<a href=login.php> Login |</a>";
 
-
+echo (basename($_SERVER['PHP_SELF']) == 'edituser.php') ? "<a href=edituser.php><strong> Edit Users | </strong></a>" : "<a href=edituser.php> Edit User |</a>";
 
 ?>
