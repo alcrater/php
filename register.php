@@ -8,9 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $sql="INSERT INTO users (username,password) VALUES('$username','$password')";
     $conn->query($sql);
 }
+
+
+session_start();
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
