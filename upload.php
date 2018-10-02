@@ -95,7 +95,17 @@ if (!isset($_SESSION['username'])) {
   
   
    ?>
-  
+  <?php
+
+if (isset($_SESSION['username'])) {
+
+ require('navbar.php');
+
+}
+
+
+
+  ?>
    Upload your file.
   <br />
    <!--info on w3schools-->
