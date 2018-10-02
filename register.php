@@ -2,7 +2,17 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     require('dbconnection.php');
+    //grab post data could be dangerous because of xss or sql injection
     $username = $_POST['username'];
+    //sanitize the username by removing tags
+    $username = filter_var($username, FILTER_SANITIZE_STRING);
+    //trim any white space from beginning and end of username - 
+    $username = trim($username);
+    //remove slashes // or \\ from username - not allowed
+    $username = stripslashes($username);
+    //remove spaces
+    $username = str_replace(' ', '',$username); //first parameter is string to look for and second parameter is the replacement
+    //grab the post data password - password is hashed so need to sanizite   
     $password = $_POST['password'];
     $password = password_hash(password, PASSWORD_BCRYPT);
     $sql="INSERT INTO users (username,password) VALUES('$username','$password')";
