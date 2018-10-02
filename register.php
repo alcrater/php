@@ -26,6 +26,11 @@ session_start();
 </head>
 <body>
     
+<a href = "register.php">Register</a>
+
+<a href = "login.php"> | Login</a>
+
+
    <form method="post" action="">
         <input type="text" name="username"><br>
         <input type="password" name="password"><br>
