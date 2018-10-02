@@ -7,13 +7,10 @@ if (!isset($_SESSION)){
 //If user is not logged in, send them to login page
 if (!isset($_SESSION['username'])){
   header('Location: login.php');
+  require('navbar.php');
 }
 
-if (isset($_SESSION['username'])) {
 
-  require('navbar.php');
-
-  }
 
 
 
