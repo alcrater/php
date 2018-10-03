@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = stripslashes($username);
     //remove spaces
     //$username = str_replace("/", '',$username); //first parameter is string to look for and second parameter is the replacement
-    $username = str_replace("\\", "", $username);
     $username = preg_replace("/\s+/","", $username); //defeats Jake's question about tabs
     //grab the post data password - password is hashed so need to sanizite   
     $password = $_POST['password'];
