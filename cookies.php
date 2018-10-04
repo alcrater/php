@@ -17,30 +17,17 @@ $cookie_value="bob";
 </head>
 <body>
 
-    <?php
- 
-    $inTwoDays = 60 * 60 * 24 * 2 + time();
-    setcookie('user', date("G:i - m/d/y"), $inTwoDays);
-    if(isset($_COOKIE['user']))
- 
-{
-    $visit = $_COOKIE['user'];
-    echo "Your last visit was - ". $visit;
-}
-else
-echo "Your cookies are stale mate!";
-?> 
-  
-   <?php
-if(isset($_COOKIE['lastVisit']))
-	$visit = $_COOKIE['lastVisit']; 
-else
-	echo "You've got some stale cookies!";
+    <!-- <?php
+   //check to see if cookie has already been set 
+        if (isset($_COOKIE['user'])) {
+            echo "You have been here before";
+        } else {
+            echo "This is your first time here";
+            //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
+            
+        }
 
-echo "Your last visit was - ". $visit;
-?>  
-
-        <!--setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie-->
-  
+        setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
+    ?> -->
 </body>
 </html>
