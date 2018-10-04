@@ -20,7 +20,7 @@ $cookie_value="bob";
     <?php
  
     $inTwoDays = 60 * 60 * 24 * 2 + time();
-    setcookie('user', date("m/d/y"), $inTwoDays);
+    setcookie('user', date("G:i - m/d/y"), $inTwoDays);
     if(isset($_COOKIE['user']))
  
 {
@@ -30,7 +30,15 @@ $cookie_value="bob";
 else
 echo "Your cookies are stale mate!";
 ?> 
-     
+  
+   <?php
+if(isset($_COOKIE['lastVisit']))
+	$visit = $_COOKIE['lastVisit']; 
+else
+	echo "You've got some stale cookies!";
+
+echo "Your last visit was - ". $visit;
+?>  
 
         <!--setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie-->
   
