@@ -23,18 +23,18 @@ $cookie_value="bob";
          {
          $last = $_COOKIE['user']; }
 
-        $year = 31536000 + time() ; //this adds one year to the current time, for the cookie expiration
-
-        setcookie(user, time (), $year) ;
-
-        if (isset ($last))
-        {
-        $change = time () - $last;
+        setcookie(user, time () + (86400 * 30), "/") ;
 
         if ( $change > 86400)
         {
-        echo "Hello Mate!!! <br> You last visited this page on ". date("m/d/y",$last);
+        echo "Hello Mate!!! <br> You last visited this page on ". date("m/d/y",$last) ;
         // Tells the user when they last visited if it was over a day ago
+        }
+        else
+        {
+        echo "Thanks for viewing the page, mate!";
+        //Gives the user a message if they are visiting again in the same day
+        }
         }
         else
         {
