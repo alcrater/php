@@ -37,12 +37,6 @@ $cookie_value="bob";
         }
         else
         {
-        echo "Thanks for viewing the page, mate!";
-        //Gives the user a message if they are visiting again in the same day
-        }
-        }
-        else
-        {
         echo "This is your first visit to this page.";
         //Greets a first time user
         }
