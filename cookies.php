@@ -22,11 +22,8 @@ $cookie_value="bob";
             echo " You have been here before";
         } else {
             echo " This is your first time here";
-            setcookie($cookie_name, $cookie_value, time() +(86400 x 30), "/"); // this is equal to one day
+            //setcookie($cookie_name, $cookie_value, time() + (86400 x 30), "/"); // this is equal to one day
         }
     ?>
-
-
-
 </body>
 </html>
