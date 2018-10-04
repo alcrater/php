@@ -16,17 +16,37 @@ $cookie_value="bob";
     <script src="main.js"></script>
 </head>
 <body>
+
     <?php
    //check to see if cookie has already been set 
         if (isset($_COOKIE['user'])) {
             echo "You have been here before";
-        } else {
-            echo "This is your first time here";
-            //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
-            
+        } $last = $_COOKIE['user']; }
+        $year = 31536000 + time() ;
+        //this adds one year to the current time, for the cookie expiration
+        setcookie(user, time (), $year) ;
+        if (isset ($last))
+        {
+        $change = time () - $last;
+        if ( $change > 86400)
+        {
+        echo "Hello Mate!!! <br> You last visited this page on ". date("m/d/y",$last) ;
+        // Tells the user when they last visited if it was over a day ago
         }
+        else
+        {
+        echo "Thanks for viewing the page, mate!";
+        //Gives the user a message if they are visiting again in the same day
+        }
+        }
+        else
+        {
+        echo "This is your first visit to this page.";
+        //Greets a first time user
+        }
+        ?> 
 
-        setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
-    ?>
+        <!--setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie-->
+    ?> 
 </body>
 </html>
