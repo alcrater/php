@@ -20,11 +20,12 @@ $cookie_value="bob";
     <?php
    //check to see if cookie has already been set 
    if (isset($_COOKIE['user'])) {
-    echo "You have been here before";
-    } $last = $_COOKIE['user']; }
+       $last = $_COOKIE['user']; }
+
         $year = 31536000 + time() ;
         //this adds one year to the current time, for the cookie expiration
-        setcookie(user, time (), $year) ;
+        setcookie(user, time (), $year);
+
         if (isset ($last))
         {
         $change = time () - $last;
@@ -43,7 +44,7 @@ $cookie_value="bob";
         {
         echo "This is your first visit to this page.";
         //Greets a first time user
-}
+         }
 ?> 
      
 
