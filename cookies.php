@@ -19,32 +19,16 @@ $cookie_value="bob";
 
     <?php
    //check to see if cookie has already been set 
-   if (isset($_COOKIE['user'])) {
-       $last = $_COOKIE['user']; }
-
-        $year = 31536000 + time() ;
-        //this adds one year to the current time, for the cookie expiration
-        setcookie(user, time (), $year);
-
-        if (isset ($last))
-        {
-        $change = time () - $last;
-        if ( $change > 86400)
-        {
-        echo "Hello Mate!!! <br> You last visited this page on ". date("m/d/y",$last) ;
-        // Tells the user when they last visited if it was over a day ago
-        }
-        else
-        {
-        echo "Thanks for viewing the page, mate!";
-        //Gives the user a message if they are visiting again in the same day
-        }
-        }
-        else
-        {
-        echo "This is your first visit to this page.";
-        //Greets a first time user
-         }
+   $inOneday = 60 * 60 * 24 * 1 + time();
+setcookie('user', date("G:i - m/d/y"), $inTwoMonths);
+if(isset($_COOKIE['user']))
+ 
+{
+$visit = $_COOKIE['user'];
+echo "Your last visit was - ". $visit;
+}
+else
+echo "You've got some stale cookies!";
 ?> 
      
 
