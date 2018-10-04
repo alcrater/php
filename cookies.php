@@ -20,12 +20,12 @@ $cookie_value="bob";
     <?php
    //check to see if cookie has already been set 
    $inOneday = 60 * 60 * 24 * 1 + time();
-setcookie('user', date("G:i - m/d/y"), $inTwoMonths);
-if(isset($_COOKIE['user']))
+    setcookie('user', date("m/d/y"), $inOneday);
+    if(isset($_COOKIE['user']))
  
 {
-$visit = $_COOKIE['user'];
-echo "Your last visit was - ". $visit;
+    $visit = $_COOKIE['user'];
+    echo "Your last visit was - ". $visit;
 }
 else
 echo "You've got some stale cookies!";
