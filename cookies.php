@@ -19,10 +19,10 @@ $cookie_value="bob";
     <?php
    //check to see if cookie has already been set 
         if (isset($_COOKIE['user'])) {
-            echo " You have been here before";
+            echo "You have been here before";
         } else {
-            echo " This is your first time here";
-            setcookie($cookie_name, $cookie_value, time() + (86400 x 30), "/"); // this is equal to one day
+            echo "This is your first time here";
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
         }
     ?>
 </body>
