@@ -19,8 +19,8 @@ $cookie_value="bob";
 
     <?php
    //check to see if cookie has already been set 
-   $inOneday = 60 * 60 * 24 * 1 + time();
-    setcookie('user', date("m/d/y"), $inOneday);
+   $inOneMonth = 60 * 60 * 24 * 31 + time();
+    setcookie('user', date("m/d/y"), $inOneMonth);
     if(isset($_COOKIE['user']))
  
 {
