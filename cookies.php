@@ -30,6 +30,7 @@ $cookie_value="bob";
         if (isset ($last))
         {
         $change = time () - $last;
+
         if ( $change > 86400)
         {
         echo "Hello Mate!!! <br> You last visited this page on ". date("m/d/y",$last);
@@ -40,6 +41,7 @@ $cookie_value="bob";
         echo "This is your first visit to this page.";
         //Greets a first time user
         }
+    }
      ?> 
 
         <!--setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie-->
