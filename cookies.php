@@ -2,6 +2,7 @@
 
 $cookie_name="user";
 $cookie_value="bob";
+//setcookie($cookie_name, $cookie_value, time() +(86400 x 30), "/"); // this is equal to one day
 ?>
 
 <!DOCTYPE html>
