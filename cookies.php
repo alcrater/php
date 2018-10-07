@@ -21,11 +21,11 @@ $cookie_value="bob";
    //check to see if cookie has already been set 
         if (isset($_COOKIE['user'])) {
 
-            $visit = $_COOKIE['lastVisit'];
+            $lastVisit = $_COOKIE['lastVisit'];
 
              // Last Visit Date
 
-            echo "Greetings Mate! <br> The last time you were here was on: " . $visit;
+            echo "Greetings Mate! <br> The last time you were here was on: " . $lastVisit;
                
           } else {
    
