@@ -17,17 +17,31 @@ $cookie_value="bob";
 </head>
 <body>
 
-    <!-- <?php
+ <?php
    //check to see if cookie has already been set 
         if (isset($_COOKIE['user'])) {
-            echo "You have been here before";
-        } else {
-            echo "This is your first time here";
-            //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
-            
-        }
 
+            $visit = $_COOKIE['lastVisit'];
+
+             // Last Visit Date
+
+            echo "Greetings Mate <br> You last visited this page on: " . $visit;
+               
+          } else {
+   
+            echo "Hello Mate! I see this is the first time you have been here.";
+
+            //set the cookie info - 86400 is one day. This can be changed to year, months etc...
+            //a year would be  = 31536000 + time()
+            //month could be set like this $inTwoMonths = 60 * 60 * 24 * 30 + time();
+   
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+   
+            setcookie('lastVisit', date("G:i - m/d/y"), time() + (86400 * 30), "/");
+     
+          }
+   
         setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
-    ?> -->
+    ?> 
 </body>
 </html>
