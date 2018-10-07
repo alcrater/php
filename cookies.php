@@ -25,7 +25,7 @@ $cookie_value="bob";
 
              // Last Visit Date
 
-            echo "Greetings Mate! <br> The last time you were here was on: " . $visit;
+            echo "Greetings Mate! <br> The last time you were here was on: " . $visit "eastern time.";
                
           } else {
    
