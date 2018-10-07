@@ -33,7 +33,7 @@ $cookie_value="bob";
 
             //set the cookie info - 86400 is one day. This can be changed to year, months etc...
             //a year would be  = 31536000 + time()
-            //month could be set like this $inTwoMonths = 60 * 60 * 24 * 30 + time();
+            //months could be set like this $inTwoMonths = 60 * 60 * 24 * 60 + time();
    
             setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
    
