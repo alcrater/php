@@ -4,7 +4,6 @@ $cookie_name="user";
 $cookie_value="bob";
 
 
-
 //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
 ?>
 
@@ -24,17 +23,11 @@ $cookie_value="bob";
    //check to see if cookie has already been set 
         if (isset($_COOKIE['user'])) {
 
-            $lastVisit = $_COOKIE['user'];
+            $lastVisit = $_COOKIE['lastVisit'];
 
-            $timeElapsed = date() - $_COOKIE['lastVisit'];
+             // Last Visit Date
 
-            $timeElapsed->format('%s');
-
-                        // Last Visit Date
-
-            echo "Greetings Mate! <br> The last time you were here was on: " . $timeElapsed;
-            
-           
+            echo "Greetings Mate! <br> The last time you were here was on: " . $lastVisit;
                
           } else {
    
@@ -52,7 +45,14 @@ $cookie_value="bob";
    
         setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
 
-       
+        function time_since($date){
+          // For seconds
+          if( $seconds < 60){
+              if( $seconds == 1){
+                  return "a second ago"
+              }
+              return sprintf( "%d seconds ago", $seconds);
+          }
       
     ?> 
 </body>
