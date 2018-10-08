@@ -26,6 +26,8 @@ $time_elapsed = timeAgo($time_ago);
 
              // Last Visit Date
 
+             
+
             echo "Greetings Mate! <br> The last time you were here was on: " . $lastVisit;
                
           } else {
@@ -44,31 +46,7 @@ $time_elapsed = timeAgo($time_ago);
    
         setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
 
-        function timeAgo($time_ago)
-{
-    $time_ago = strtotime($time_ago);
-    $cur_time   = time();
-    $time_elapsed   = $cur_time - $time_ago;
-    $seconds    = $time_elapsed ;
-    $minutes    = round($time_elapsed / 60 );
-    $hours      = round($time_elapsed / 3600);
-    $days       = round($time_elapsed / 86400 );
-    $weeks      = round($time_elapsed / 604800);
-    $months     = round($time_elapsed / 2600640 );
-    $years      = round($time_elapsed / 31207680 );
-    // Seconds
-    if($seconds <= 60){
-        return "just now";
-    }
-    //Minutes
-    else if($minutes <=60){
-        if($minutes==1){
-            return "one minute ago";
-        }
-        else{
-            return "$minutes minutes ago";
-        }
-    }
+        
 
       
     ?> 
