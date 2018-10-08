@@ -24,7 +24,7 @@ $cookie_value="bob";
    //check to see if cookie has already been set 
         if (isset($_COOKIE['user'])) {
 
-            $lastVisit = $_COOKIE['lastVisit'];
+            $lastVisit = $_COOKIE['user'];
 
             $currentDate = date('Y-m-d H:i:s');
 
@@ -34,7 +34,7 @@ $cookie_value="bob";
 
                         // Last Visit Date
 
-            echo "Greetings Mate! <br> The last time you were here was on: " . $timeDiff;
+            echo "Greetings Mate! <br> The last time you were here was on: " . $timeLastVisit;
             
            
                
