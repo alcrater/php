@@ -2,6 +2,9 @@
 
 $cookie_name="user";
 $cookie_value="bob";
+
+
+
 //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
 ?>
 
@@ -23,9 +26,17 @@ $cookie_value="bob";
 
             $lastVisit = $_COOKIE['lastVisit'];
 
-             // Last Visit Date
+            $currentDate = date('Y-m-d H:i:s');
 
-            echo "Greetings Mate! <br> The last time you were here was on: " . $lastVisit;
+            $timeLastVisit = date_diff($_COOKIE['$lastVisit'], $currentDate);
+
+            $timeLastVisit->format('%s');
+
+                        // Last Visit Date
+
+            echo "Greetings Mate! <br> The last time you were here was on: " . $timeDiff;
+            
+           
                
           } else {
    
@@ -42,6 +53,9 @@ $cookie_value="bob";
           }
    
         setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
+
+       
+      
     ?> 
 </body>
 </html>
