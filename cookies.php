@@ -26,15 +26,13 @@ $cookie_value="bob";
 
             $lastVisit = $_COOKIE['user'];
 
-            $currentDate = date('Y-m-d H:i:s');
+            $timeElapsed = time() - $_COOKIE['visittime'];
 
-            $timeLastVisit = date_diff($_COOKIE['$lastVisit'], $currentDate);
-
-            $timeLastVisit->format('%s');
+            $timeElapsed->format('%s');
 
                         // Last Visit Date
 
-            echo "Greetings Mate! <br> The last time you were here was on: " . $timeLastVisit;
+            echo "Greetings Mate! <br> The last time you were here was on: " . $timeElapsed;
             
            
                
