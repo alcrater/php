@@ -26,7 +26,7 @@ $cookie_value="bob";
 
             $lastVisit = $_COOKIE['user'];
 
-            $timeElapsed = time() - $_COOKIE['lastVisit'];
+            $timeElapsed = date() - $_COOKIE['lastVisit'];
 
             $timeElapsed->format('%s');
 
