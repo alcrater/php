@@ -2,8 +2,7 @@
 
 $cookie_name="user";
 $cookie_value="bob";
-
-
+$time_elapsed = timeAgo($time_ago);
 //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
 ?>
 
@@ -45,14 +44,32 @@ $cookie_value="bob";
    
         setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
 
-        function time_since($date){
-          // For seconds
-          if( $seconds < 60){
-              if( $seconds == 1){
-                  return "a second ago"
-              }
-              return sprintf( "%d seconds ago", $seconds);
-          }
+        function timeAgo($time_ago)
+{
+    $time_ago = strtotime($time_ago);
+    $cur_time   = time();
+    $time_elapsed   = $cur_time - $time_ago;
+    $seconds    = $time_elapsed ;
+    $minutes    = round($time_elapsed / 60 );
+    $hours      = round($time_elapsed / 3600);
+    $days       = round($time_elapsed / 86400 );
+    $weeks      = round($time_elapsed / 604800);
+    $months     = round($time_elapsed / 2600640 );
+    $years      = round($time_elapsed / 31207680 );
+    // Seconds
+    if($seconds <= 60){
+        return "just now";
+    }
+    //Minutes
+    else if($minutes <=60){
+        if($minutes==1){
+            return "one minute ago";
+        }
+        else{
+            return "$minutes minutes ago";
+        }
+    }
+
       
     ?> 
 </body>
