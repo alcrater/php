@@ -2,7 +2,10 @@
 
 $cookie_name="user";
 $cookie_value="bob";
-$time_elapsed = timeAgo($time_ago);
+$cookie_date = date("l jS \of F Y h:i:s A");
+
+setcookie($cookie_name, $cookie_date, time()+(84600 * 30), "/");
+
 //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
 ?>
 
@@ -23,12 +26,12 @@ $time_elapsed = timeAgo($time_ago);
         if (isset($_COOKIE['user'])) {
 
             $lastVisit = $_COOKIE['lastVisit'];
-
+            $currentDate = date("l jS \of F Y h:i:s A");
+            $seconds = $lastVisit($_COOKIE['lastVisit'], $currentDate);
+            $seconds->format('%s');
              // Last Visit Date
 
-             
-
-            echo "Greetings Mate! <br> The last time you were here was on: " . $lastVisit;
+            echo "Greetings Mate! <br> The last time you were here was on: " . $seconds;
                
           } else {
    
@@ -46,9 +49,10 @@ $time_elapsed = timeAgo($time_ago);
    
         setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
 
-        
-
+       
       
     ?> 
+
+    
 </body>
 </html>
