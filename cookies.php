@@ -60,7 +60,7 @@ setcookie($cookie_name, $cookie_date, time()+(84600 * 30), "/");
 
 
 
-    ?> 
+
 
     
 </body>
