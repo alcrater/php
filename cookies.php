@@ -4,29 +4,7 @@ $cookie_name = "last_visit";
 
 $cookie_value = date("l jS \of F Y h:i:s A");// l -day of the week
 
-//setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");
 
-//86400 = 1 day
-
-if (isset($_COOKIE['last_visit']))
-
-{
-
-  $notification = "Welcome Back Mate: I see you have been here before.";
-
-  $last_visit = $_COOKIE['last_visit'];
-
-  setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-
-}
-
-else {
-
-  $notification = "Welcome Mate!!! I see this is your first visit";
-
-  setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-
-}
 
 
 if (isset($_COOKIE['last_visit']))
