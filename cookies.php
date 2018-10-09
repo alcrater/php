@@ -45,10 +45,12 @@ $cookie_value="bob";
         echo "This is your first visit to this page.";
         //Greets a first time user
          }
+
+         
+       setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
 ?> 
      
 
-        <!--setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie-->
   
 </body>
 </html>
