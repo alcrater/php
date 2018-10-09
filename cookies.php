@@ -40,7 +40,7 @@ else {
 
 
 
-if ($seconds <= 604800)
+if ($seconds <= 60)
 
 {
 
