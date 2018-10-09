@@ -44,7 +44,7 @@ if (isset($_COOKIE['lastVisit']))
 
 {
 
-  $notification = "Last time you were here Mate was " . (time() - ($lastVisit /1800)) . " seconds ago";
+  $notification = "Last time you were here Mate was " . (time() - $lastVisit / 1800) . " seconds ago";
 
 }
 
