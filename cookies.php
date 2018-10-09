@@ -15,7 +15,7 @@ if (isset($_COOKIE['lastVisit']))
 
  ?>
 
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -32,8 +32,7 @@ if (isset($_COOKIE['lastVisit']))
 
           echo $notification;
 
-          echo ($lastVisit != "")? "<br /> Last Visit: " . $lastVisit : "";
-      
+            
         ?>
 
     </p>
