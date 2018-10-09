@@ -25,7 +25,7 @@ setcookie($cookie_name, $cookie_date, time()+(84600 * 30), "/");
    //check to see if cookie has already been set 
         if (isset($_COOKIE['user'])) {
 
-            $lastVisit = $_COOKIE['lastVisit'];
+            
             $currentDate = date("l jS \of F Y h:i:s A");
             $seconds = $lastVisit($_COOKIE['user'], $currentDate);
             $seconds->format('%s');
