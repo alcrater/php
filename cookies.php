@@ -40,7 +40,7 @@ else {
 
 
 
-if (isset($_COOKIE['lastVisit']))
+if ($seconds <= 604800)
 
 {
 
