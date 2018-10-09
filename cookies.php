@@ -27,7 +27,7 @@ setcookie($cookie_name, $cookie_date, time()+(84600 * 30), "/");
 
             $lastVisit = $_COOKIE['lastVisit'];
             $currentDate = date("l jS \of F Y h:i:s A");
-            $seconds = $lastVisit($_COOKIE['lastVisit'], $currentDate);
+            $seconds = $lastVisit($_COOKIE['user'], $currentDate);
             $seconds->format('%s');
              // Last Visit Date
 
