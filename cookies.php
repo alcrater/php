@@ -35,7 +35,7 @@ setcookie($cookie_name, $cookie_date, time()+(84600 * 30), "/");
      $change = time () - $last;
      if ( $change > 86400)
      {
-     echo "Hello Mate!!! <br> Your last visit was " . date("G:i - m/d/y") ,$last) ;
+     echo "Hello Mate!!! <br> Your last visit was ". date("G:i - m/d/y",$last) ;
      // Tells the user when they last visited if it was over a day ago
      }
      else
