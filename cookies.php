@@ -44,7 +44,7 @@ if ($seconds <= 60)
 
 {
 
-  $notification = "Last time you were here Mate was " . (time() / $lastVisit) . " seconds ago";
+  $notification = "Last time you were here Mate was " . (time() $lastVisit) . " seconds ago";
 
 }
 
