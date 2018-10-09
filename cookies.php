@@ -5,6 +5,8 @@ $cookie_name = "lastVisit";
 
 $cookie_value = date("l jS \of F Y h:i:s A");// l -day of the week
 
+
+
 //setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");
 
 //86400 = 1 day
@@ -42,7 +44,7 @@ if (isset($_COOKIE['lastVisit']))
 
 {
 
-  $notification = "Last time you were here Mate was " . (time()- $lastVisit) . " seconds ago";
+  $notification = "Last time you were here Mate was " . (time() - $lastVisit /2) . " seconds ago";
 
 }
 
