@@ -23,29 +23,32 @@ setcookie($cookie_name, $cookie_date, time()+(84600 * 30), "/");
 
  <?php
    //check to see if cookie has already been set 
-        if (isset($_COOKIE['user'])) {
+   if (isset($_COOKIE['user'])) {
+    $last = $_COOKIE['user']; }
 
-            
-            $currentDate = date("l jS \of F Y h:i:s A");
-            $seconds = $lastVisit($_COOKIE['user'], $currentDate);
-            $seconds->format('%s');
-             // Last Visit Date
+     $year = 31536000 + time() ;
+     //this adds one year to the current time, for the cookie expiration
+     setcookie(user, time (), $year);
 
-            echo "Greetings Mate! <br> The last time you were here was on: " . $seconds;
-               
-          } else {
-   
-            echo "Hello Mate! I see this is the first time you have been here.";
-
-            //set the cookie info - 86400 is one day. This can be changed to year, months etc...
-            //a year would be  = 31536000 + time()
-            //months could be set like this $inTwoMonths = 60 * 60 * 24 * 60 + time();
-   
-            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-   
-            setcookie('lastVisit', date("G:i - m/d/y"), time() + (86400 * 30), "/");
-     
-          }
+     if (isset ($last))
+     {
+     $change = time () - $last;
+     if ( $change > 1)
+     {
+     echo "Hello Mate!!! <br> You last visited this page on ". date("m/d/y",$last) ;
+     // Tells the user when they last visited if it was over a day ago
+     }
+     else
+     {
+     echo "Thanks for viewing the page, mate!";
+     //Gives the user a message if they are visiting again in the same day
+     }
+     }
+     else
+     {
+     echo "This is your first visit to this page.";
+     //Greets a first time user
+      }
    
         setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
 
