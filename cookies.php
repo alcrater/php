@@ -1,17 +1,15 @@
 <?php
 
-$cookie_name = "last_visit";
+$cookie_name = "lastVisit";
 
 $cookie_value = date("l jS \of F Y h:i:s A");// l -day of the week
 
 
-
-
-if (isset($_COOKIE['last_visit']))
+if (isset($_COOKIE['lastVisit']))
 
 {
 
-  $notification = "Last time you were here Mate was " . (time()- $last_visit) . " seconds ago";
+  $notification = "Last time you were here Mate was " . (time()- $lastVisit) . " seconds ago";
 
 }
 
@@ -34,7 +32,7 @@ if (isset($_COOKIE['last_visit']))
 
           echo $notification;
 
-          echo ($last_visit != "")? "<br /> Last Visit: " . $last_visit : "";
+          echo ($lastVisit != "")? "<br /> Last Visit: " . $lastVisit : "";
       
         ?>
 
