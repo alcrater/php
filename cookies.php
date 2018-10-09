@@ -1,56 +1,88 @@
 <?php
 
-$cookie_name="user";
-$cookie_value="bob";
-//setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // this is equal to one day
-?>
+
+
+$cookie_name = "last_visit";
+
+$cookie_value = date("l jS \of F Y h:i:s A");// l -day of the week
+
+//setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");
+
+//86400 = 1 day
+
+
+
+if (isset($_COOKIE['last_visit']))
+
+{
+
+  $notification = "You have been here within 30 days";
+
+  $last_visit = $_COOKIE['last_visit'];
+
+  //$cookie_value = time();
+
+  //$last_visit = $_COOKIE['last_visit'];
+
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+
+}
+
+else {
+
+  $notification = "Welcome Mate!!! I see this is your first visit";
+
+  setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+
+}
+
+
+
+if (isset($_COOKIE['last_visit']))
+
+{
+
+  $notification = "Last time you were here Mate was " . (time()- $last_visit) . " seconds ago";
+
+  // $change = time() - $cookie_value;
+
+  // $visit_time = "Last time you were here " . $change . " seconds ago";
+
+}
+
+
+
+ ?>
+
+ 
 
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
 
-    <?php
-   //check to see if cookie has already been set 
-   if (isset($_COOKIE['user'])) {
-       $last = $_COOKIE['user']; }
+<html lang="en" dir="ltr">
 
-        $year = 31536000 + time() ;
-        //this adds one year to the current time, for the cookie expiration
-        setcookie(user, time (), $year);
+  <head>
 
-        if (isset ($last))
-        {
-        $change = time () - $last;
-        if ( $change > 86400)
-        {
-        echo "Hello Mate!!! <br> You last visited this page on ". date("m/d/y",$last) ;
-        // Tells the user when they last visited if it was over a day ago
-        }
-        else
-        {
-        echo "Thanks for viewing the page, mate!";
-        //Gives the user a message if they are visiting again in the same day
-        }
-        }
-        else
-        {
-        echo "This is your first visit to this page.";
-        //Greets a first time user
-         }
+    <meta charset="utf-8">
 
-         
-       setcookie($cookie_name, $cookie_value, time() + (60), "/"); // this expires the cookie
-?> 
-     
+    <title></title>
 
-  
-</body>
+  </head>
+
+  <body>
+
+    <p>
+
+      <?php
+
+          echo $notification;
+
+          echo ($last_visit != "")? "<br /> Last Visit: " . $last_visit : "";
+
+       
+       ?>
+
+    </p>
+
+  </body>
+
 </html>
