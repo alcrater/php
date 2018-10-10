@@ -1,21 +1,21 @@
 <?php
 $output = shell_exec('ls -lah');
-echo "<pre>$output</pre>";
+echo "$output";
 
 $pwd = shell_exec('pwd');
-echo ="<pre>$pwd</pre>";
+echo ="$pwd";
 ?>
 
 <?php
 $filename = "/var/www/html/audrey/audrey/php/test";
 
-if (file_exits($filename)) {
-    echo "The file $filename";
-    echo "<br>- exists";
+if (file_exists($filename)) {
+    echo "$filename does exist";
+   
 
 } else {
-    echo "The file $filename";
-    echo "<br>- not exists";
+    echo "$filename does not exist";
+   
   } 
   
-  ?>
+ ?>
