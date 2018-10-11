@@ -27,10 +27,12 @@ if ($file_test) {
 
 
 <?php
-$files = scandir($imgspath); 
-$total = count($files); 
-$images = array(); 
-for($x = 0; $x <= $total; $x++): 
-    if ($files[$x] != '.' && $files[$x] != '..') 
-    { $images[] = $files[$x]; }
+
+$dir    = '/test';
+$files1 = scandir($dir);
+$files2 = scandir($dir, 1);
+
+print_r($files1);
+print_r($files2);
 ?> 
+
