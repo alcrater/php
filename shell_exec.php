@@ -14,6 +14,10 @@ if ($file_test) {
     if ($folder_test) {
 
     echo "test exists, and is a folder";
+    
+    $testArray = scandir("test/");
+
+
 
     } else {
         "test exists and is a file";
@@ -26,13 +30,4 @@ if ($file_test) {
 
 
 
-<?php
-
-$dir    = '/test';
-$files1 = scandir($dir);
-$files2 = scandir($dir, 1);
-
-print_r($files1);
-print_r($files2);
-?> 
 
