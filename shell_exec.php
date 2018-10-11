@@ -23,3 +23,14 @@ if ($file_test) {
 }
 
 ?>
+
+
+
+<?php
+$files = scandir($imgspath); 
+$total = count($files); 
+$images = array(); 
+for($x = 0; $x <= $total; $x++): 
+    if ($files[$x] != '.' && $files[$x] != '..') 
+    { $images[] = $files[$x]; }
+?> 
