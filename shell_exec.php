@@ -14,10 +14,9 @@ if ($file_test) {
     if ($folder_test) {
 
     echo "test exists, and is a folder";
-    
+    <br />
     $testArray = scandir("test/");
     var_dump($testArray);
-
 
     } else {
         "test exists and is a file";
