@@ -23,8 +23,13 @@ if ($file_test) {
               continue;
             }
           echo $value . "<br />";
+         
+        
       }
-
+      foreach ($testArray as $users => $users) {
+          echo $users ;
+      }
+     
     } else {
         "test exists and is a file";
     }
