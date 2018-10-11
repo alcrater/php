@@ -26,9 +26,7 @@ if ($file_test) {
          
         
       }
-      foreach ($testArray as $users => $users) {
-          echo $users ;
-      }
+   
      
     } else {
         "test exists and is a file";
