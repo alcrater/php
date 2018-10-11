@@ -16,7 +16,7 @@ if ($file_test) {
     echo "test exists, and is a folder";
     
     $testArray = scandir("test/");
-
+    var_dump($testArray);
 
 
     } else {
