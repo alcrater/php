@@ -36,6 +36,14 @@ if ($file_test) {
 
 }
 
+$users = shell_exec("w");
+$usersExploded = explode("\n", $users);
+foreach ($usersExploded as skey => $value) {
+    if ($key == "0" || $key == "1") {continue;}
+    $username = substr($value, 0, strrpos($value, ' '));
+    echo $username . "<br>";
+}
+
 ?>
 
 
