@@ -2,7 +2,7 @@
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    require('/References Page/dbconnection.php');
+    require('dbconnection.php');
     $sql = "SELECT * FROM fm_users";
     $checkForTable = $conn->query($sql);
 if (mysqli_num_rows($checkForTable) < 1 ) {
