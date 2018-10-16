@@ -3,26 +3,19 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     require('dbconnection.php');
-    $sql = "SELECT * FROM fm_users";
-    $checkForTable = $conn->query($sql);
-if (mysqli_num_rows($checkForTable) < 1 ) {
-$sql = "CREATE TABLE IF NOT EXISTS fm_users (
-    userid INT AUTO_INCREMENT,
-    email VARCHAR(255),
-    password VARCHAR(255),
-    PRIMARY KEY(userid)
-)";
-$tableCreate = $conn->query($sql);
+    //grab post data could be dangerous because of xss or sql injection
+    $email = $_POST['email'];
+    //sanitize the username by removing tags
+    $email = filter_var($email, FILTER_SANITIZE_STRING);
+    //trim any white space from beginning and end of username - 
+    $email = trim($email);
+    
+    $password = $_POST['password'];
+    $password = password_hash(password, PASSWORD_BCRYPT);
+    $sql="INSERT INTO users (email,password) VALUES('$email','$password')";
+    $conn->query($sql);
 }
-$email = $_POST['email'];
-$email = filter_var($email, FILTER_SANITIZE_EMAIL);
-$email = trim($email);
-$password = $_POST['password'];
-$password = password_hash($password, PASSWORD_BCRYPT);
-$sql = "INSERT INTO fm_users (email,password) VALUES ('$email','$password')";
-$conn->query($sql);
-}
-
+session_start();
 ?>
 
 
