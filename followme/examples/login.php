@@ -6,12 +6,11 @@
 
 
 
-    $username = $_POST['username'];
+    $email = $_POST['email'];
 
-    $username = filter_var($username, FILTER_SANITIZE_STRING);
+    $email = filter_var($email, FILTER_SANITIZE_STRING);
 
-    $username = trim($username);
-
+    $email = trim($email);
 
     $password = $_POST['password'];
 
@@ -19,7 +18,7 @@
 
 
 
-    $sql = "SELECT username, password FROM fm_users WHERE username = " . $username;
+    $sql = "SELECT email, password FROM fm_users WHERE email= " . $email;
 
     $result = $conn->query($sql);
 
@@ -27,15 +26,13 @@
 
 
 
-    if ($row['username'] == $username && $row['password'] == $password) {
+    if ($row['email'] == $email && $row['password'] == $password) {
 
         header('Location: profile.html');    
 
     } else {
 
-        $invalidLogin = "This is an invalid login. This incident will be reported.";
-
-        //$invalidLogin = "This username/password combo is invalid.";
+        $invalidLogin = "Email and password do not match, try again";
 
     }
 
