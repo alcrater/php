@@ -1,42 +1,34 @@
 <?php
 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//must be in caps!
 
-    require('dbconnection.php');
+  session_start();
 
+  require('dbconnection.php');
 
-
+  if (isset($_POST['email'])){
     $email = $_POST['email'];
-
-    $email = filter_var($email, FILTER_SANITIZE_STRING);
-
-    $email = trim($email);
-
     $password = $_POST['password'];
-
-    $password = password_hash($password, PASSWORD_BCRYPT);
-
-
-
-    $sql = "SELECT email, password FROM fm_users WHERE email= " . $email;
-
+    $sql = "SELECT email, password FROM fm_users where email = '$email'";
     $result = $conn->query($sql);
+    while ($row = $result->fetch_assoc()){
+    if ($email == $row['email'] && password_verify($password, $row['password']) ){
+    $_SESSION['email'] = $email;
 
-    $row = $result->fetch_assoc();
+      } 
+
+    } 
+
+ }
 
 
 
-    if ($row['email'] == $email && $row['password'] == $password) {
+  if (isset($_SESSION['email'])) {
 
-        header('Location: profile.html');    
-
-    } else {
-
-        $invalidLogin = "Email and password do not match, try again";
-
-    }
+    header('location: profile.php');
 
   }
+
 
 ?>
 
