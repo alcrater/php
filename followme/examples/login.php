@@ -1,8 +1,6 @@
 <?php
 
-  session_start();
-
-  require('dbconnection.php');
+   require('dbconnection.php');
 
   if (isset($_POST['email'])){
     $email = $_POST['email'];
@@ -25,7 +23,7 @@
 
   }
 
-
+  session_start();
 ?>
 
 <!doctype html>
