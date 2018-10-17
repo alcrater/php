@@ -1,38 +1,45 @@
 <?php
 
-//must be in caps!
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-  session_start();
+    require('dbconnection.php');
 
-  require('dbconnection.php');
 
-  if (isset($_POST['email'])){
-    $email = $_POST['email'];
+
+    $username = $_POST['username'];
+
+    $username = filter_var($username, FILTER_SANITIZE_STRING);
+
+    $username = trim($username);
+
+
     $password = $_POST['password'];
-   //variables with single quotes
-    $sql = "SELECT email, password FROM fm_users where email = '$email'";
+
+    $password = password_hash($password, PASSWORD_BCRYPT);
+
+
+
+    $sql = "SELECT username, password FROM fm_users WHERE username = " . $username;
+
     $result = $conn->query($sql);
 
-    while ($row = $result->fetch_assoc()){
-
-    if ($email == $row['email'] && password_verify($password, $row['password']) ){
-
-    $_SESSION['email'] = $email;
-
-      } 
-
-    } 
-
- }
+    $row = $result->fetch_assoc();
 
 
 
-  if (isset($_SESSION['email'])) {
+    if ($row['username'] == $username && $row['password'] == $password) {
 
-    header('location: profile.html');
+        header('Location: profile.html');    
+
+    } else {
+
+        $invalidLogin = "This is an invalid login. This incident will be reported.";
+
+        //$invalidLogin = "This username/password combo is invalid.";
+
+    }
 
   }
-
 
 ?>
 
