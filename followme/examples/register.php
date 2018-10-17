@@ -36,8 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 
- 
-
   $password = $_POST['password'];
 
   $password = password_hash($password, PASSWORD_BCRYPT);
@@ -47,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   $conn->query($sql);
 
 }
+
+session_start();
 
 ?>
 
