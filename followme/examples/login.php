@@ -1,5 +1,5 @@
 <?php
-
+ session_start();
    require('dbconnection.php');
 
   if (isset($_POST['email'])){
@@ -18,12 +18,10 @@
  }
 
   if (isset($_SESSION['email'])) {
-
     header('location: profile.php');
-
   }
 
-  session_start();
+ 
 ?>
 
 <!doctype html>
