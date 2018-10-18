@@ -1,5 +1,11 @@
 <?php
+//start session
 
+//uses $_SESSION['email'] to display navigation
+
+//Modify fm_users table to include profile image url -- load it to $_SESSION['imgurl']
+
+//Modify table to include first_name, last_name $_SESSION['first_name'] ['last_name']
 ?>
 
 
@@ -43,7 +49,12 @@
 			<div class="collapse navbar-collapse" id="navbarToggler">
 	            <ul class="navbar-nav ml-auto">
 	                <li class="nav-item">
-	                    <a href="login.php" class="nav-link"></i>Login</a>
+	                    <a href="login.php" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+	                    <a href="#" class="nav-link">
+                            <?php echo $_SESSION['email']; ?>
+                        </a>
 	                </li>
 	            </ul>
 	        </div>
@@ -57,11 +68,13 @@
         <div class="section profile-content">
             <div class="container">
                 <div class="owner">
-                    <div class="avatar">
-                        <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                    
+            <!--when user logs in, pull their image sql with url image 
+                MODIFY FM_USERS TABLE TO INCLUDE URL OF PROFILE PIC-->
+                        <img src="<?php echo $_SESSION['img_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     </div>
                     <div class="name">
-                        <h4 class="title">Jane Faker<br /></h4>
+                        <h4 class="title"><?php echo $_SESSION['first_name'] . "" . $_SESSION['last_name']; ?>Jane Faker<br /></h4>
 						<h6 class="description">Music Producer</h6>
                     </div>
                 </div>
