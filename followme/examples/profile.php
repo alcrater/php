@@ -5,7 +5,11 @@
 
 //Modify fm_users table to include profile image url -- load it to $_SESSION['imgurl']
 
-//Modify table to include first_name, last_name $_SESSION['first_name'] ['last_name']
+//Modify fm_users table to include first_name, last_name $_SESSION['first_name'] ['last_name']
+
+//Modify fm_users table to include a title $_SESSION['title']
+
+//Modify fm_users table to include a description $_SESSION['description']
 ?>
 
 
@@ -75,12 +79,12 @@
                     </div>
                     <div class="name">
                         <h4 class="title"><?php echo $_SESSION['first_name'] . "" . $_SESSION['last_name']; ?>Jane Faker<br /></h4>
-						<h6 class="description">Music Producer</h6>
+						<h6 class="description"><?php echo $_SESSION['title']; ?></h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto text-center">
-                        <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                        <p><?php echo $_SESSION['description']; ?> </p>
                         <br />
                         <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
                     </div>
