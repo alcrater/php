@@ -8,9 +8,10 @@ if (isset($_POST['email'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-   //$sql = "SELECT * FROM fm_users where email = '$email'";
+   $sql = "SELECT * FROM fm_users where email = '$email'";
    
-    $sql = "SELECT email, password, first_name, last_name, description, title, image_url FROM fm_users where email = '$email'";
+   //or you could do it this way for the $sql
+    //$sql = "SELECT email, password, first_name, last_name, description, title, image_url FROM fm_users where email = '$email'";
     $result = $conn->query($sql);
  
     while ($row = $result->fetch_assoc()){
