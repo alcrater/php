@@ -1,8 +1,12 @@
 <?php
-session_start();
-require('dbconnection.php');
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  session_start();
+  require('dbconnection.php');
+
 
 if (isset($_POST['email'])){
+
     $email = $_POST['email'];
     $password = $_POST['password'];
 
