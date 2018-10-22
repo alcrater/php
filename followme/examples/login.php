@@ -5,8 +5,10 @@
   if (isset($_POST['email'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
+
     $sql = "SELECT email, password FROM fm_users where email = '$email'";
     $result = $conn->query($sql);
+    
     while ($row = $result->fetch_assoc()){
     if ($email == $row['email'] && password_verify($password, $row['password']) ){
     $_SESSION['email'] = $email;
