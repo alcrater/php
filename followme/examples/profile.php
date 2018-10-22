@@ -4,7 +4,7 @@ session_start();
    require('dbconnection.php');
 //uses $_SESSION['email'] to display navigation
 
-//Modify fm_users table to include profile image url -- load it to $_SESSION['imgurl']
+//Modify fm_users table to include profile image url -- load it to $_SESSION['image_url']
 
 //Modify fm_users table to include first_name, last_name $_SESSION['first_name'] ['last_name']
 

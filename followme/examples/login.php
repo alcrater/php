@@ -1,29 +1,41 @@
 <?php
- session_start();
-   require('dbconnection.php');
+session_start();
+require('dbonnection.php');
 
-  if (isset($_POST['email'])){
+if (isset($_POST['email'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT email, first_name, last_name, title, description FROM fm_users where email = '$email'";
+    $sql = "SELECT * FROM fm_users where email = '$email'";
+    //or could do it this way
+    //$sql = "SELECT email, password, first_name, last_name, description, title, image_url FROM fm_users where email = '$email'";
     $result = $conn->query($sql);
-
+ 
     while ($row = $result->fetch_assoc()){
+    
+    // use the $row['email'] value from fm_users database
+    
     if ($email == $row['email'] && password_verify($password, $row['password']) ){
+    //set variables from profile.php page
     $_SESSION['email'] = $email;
-    $_SESSION['first_name'] = $_first_name;
-    $_SESSION['last_name'] = $last_name;
-    $_SESSION['title'] = $title;
-    $_SESSION['description'] = $description;
-       } 
-
-    } 
-
- }
-
- if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.php');}
-?>
+    $_SESSION['img_url'] = $row['image_url'];
+    $_SESSION['first_name'] = $row['first_name'];
+    $_SESSION['last_name'] = $row['last_name'];
+    $_SESSION['title'] = $row['title'];
+    $_SESSION['description'] = $row['description'];
+        
+    } //closes if statement
+    
+    } //closes while loop
+    
+    }// closes POST condition
+    
+    if (isset($_SESSION['email'])) {
+    header('location: profile.php');
+    
+    } //closes if (isset)
+    
+    ?>
 
 <!doctype html>
 <html lang="en">
