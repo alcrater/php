@@ -6,24 +6,23 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT email, password FROM fm_users where email = '$email'";
+    $sql = "SELECT email, first_name, last_name, title, description FROM fm_users where email = '$email'";
     $result = $conn->query($sql);
-    
+
     while ($row = $result->fetch_assoc()){
     if ($email == $row['email'] && password_verify($password, $row['password']) ){
     $_SESSION['email'] = $email;
-
-      } 
+    $_SESSION['first_name'] = $_first_name;
+    $_SESSION['last_name'] = $last_name;
+    $_SESSION['title'] = $title;
+    $_SESSION['description'] = $description;
+       } 
 
     } 
 
  }
 
-  if (isset($_SESSION['email'])) {
-    header('location: profile.php');
-  }
-
- 
+ if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.php');}
 ?>
 
 <!doctype html>
