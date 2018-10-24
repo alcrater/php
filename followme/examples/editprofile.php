@@ -78,33 +78,45 @@ session_start();
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 ml-auto mr-auto">
-                            <h2 class="text-center">Keep in touch?</h2>
+          <!--Remember this-->   <h2 class="text-center">Edit Profile</h2>
                             <form class="contact-form">
+                       <!--first row begins-->
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Name</label>
+                                        <label>First Name</label>
 										<div class="input-group">
 	                                        <span class="input-group-addon">
 	                                            <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text" class="form-control" placeholder="Name">
+	                                        <input type="text" class="form-control" placeholder="First Name">
 	                                    </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Email</label>
+                                        <label>Last Name</label>
 										<div class="input-group">
 											<span class="input-group-addon">
-												<i class="nc-icon nc-email-85"></i>
+												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text" class="form-control" placeholder="Email">
+											<input type="text" class="form-control" placeholder="Last Name">
 										</div>
                                     </div>
-                                </div>
-                                <label>Message</label>
-                                <textarea class="form-control" rows="4" placeholder="Tell us your thoughts and feelings..."></textarea>
+                                </div> <!--ends first row-->
+
+                                <label>Title</label>
+										<div class="input-group">
+											<span class="input-group-addon">
+												<i class="nc-icon nc-tag-content"></i>
+											</span>
+											<input type="text" class="form-control" placeholder="Title">
+										</div>
+                                    </div>
+
+                            <!--Text Area for Description-->
+                                <label>Description</label>
+                                <textarea class="form-control" rows="4" placeholder="Tell everyone a little about you"></textarea>
                                 <div class="row">
-                                    <div class="col-md-4 ml-auto mr-auto">
-                                        <button class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                                    <div class="col-md-4 ml-auto mr-auto text-center">
+                                        <button class="btn btn-danger btn-lg btn-fill">Update</button>
                                     </div>
                                 </div>
                             </form>
