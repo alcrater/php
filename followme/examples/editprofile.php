@@ -109,7 +109,7 @@ session_start();
 											</span>
 											<input type="text" class="form-control" placeholder="Title">
 										</div>
-                                    </div>
+                           
 
                             <!--Text Area for Description-->
                                 <label>Description</label>
