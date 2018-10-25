@@ -7,20 +7,39 @@
  //can remove the image since we are not doing it for now.
 //start session
 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    require('dbconnection.php');
-   $first_name = $_POST['first_name'];
-   $last_name = $_POST['last_name'];
-   $description = $_POST['description'];
-   $title = $_POST['title'];
-   $email = $_POST['email'];
-
-   $sql = "Update fm_users SET first_name='$_POST['first_name']', last_name='$_POST['last_name']', title=' $_POST['title']', description='$_POST['description']' WHERE email='$_POST['email']'";
-   $result = $conn->query($sql);
-    header('login.php')
-    } 
-
-
+      if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        require('dbconnection.php');
+    
+        $sql = "Update fm_users SET first_name='$_POST['first_name']', last_name='$_POST['last_name']', title=' $_POST['title']', description='$_POST['description']' WHERE email='$_POST['email']'";
+        $result = $conn->query($sql);
+       
+       //or you could do it this way for the $sql
+        //$sql = "SELECT email, password, first_name, last_name, description, title, image_url FROM fm_users where email = '$email'";
+        
+     
+        while ($row = $result->fetch_assoc()){
+        
+        // use the $row['email'] value from fm_users database
+        
+        if ($email == $row['email']) ){
+        //set variables from profile.php page
+        $_SESSION['email'] = $email;
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['last_name'] = $row['last_name'];
+        $_SESSION['title'] = $row['title'];
+        $_SESSION['description'] = $row['description'];
+            
+        } //closes if statement
+        
+        } //closes while loop
+        
+        }// closes POST condition
+        
+        if (isset($_SESSION['email'])) {
+        header('Location: profile.php');
+        
+        } //closes if (isset)
+        
 ?>
 
 
