@@ -1,18 +1,29 @@
 <?php
 //if it is not running
-
+ //add name attribute if it is not running
+ //set default values for each form element from $_SESSION
+ //Update submitted values to database
+ //update submitted values to $_SESSION
+ //can remove the image since we are not doing it for now.
 //start session
-session_start();
- require('dbconnection.php');
-//uses $_SESSION['email'] to display navigation
+if (!isset($_SESSION)) {
+    session_start();
+  }
 
-//Modify fm_users table to include profile image url -- load it to $_SESSION['image_url']
+  if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    require('dbconnection.php');
+   $first_name = $_POST['first_name'];
+   $last_name = $_POST['last_name'];
+   $description = $_POST['description'];
+   $title = $_POST['title'];
+   $email = $_POST['email'];
 
-//Modify fm_users table to include first_name, last_name $_SESSION['first_name'] ['last_name']
+   $sql = "Update fm_users SET first_name='$_POST['first_name']', last_name='$_POST['last_name']', title=' $_POST['title']', description='$_POST['description']' WHERE email='$_POST['email']'";
+   $result = $conn->query($sql);
+    header('login.php')
+    } 
 
-//Modify fm_users table to include a title $_SESSION['title']
 
-//Modify fm_users table to include a description $_SESSION['description']
 ?>
 
 
@@ -60,7 +71,7 @@ session_start();
                     </li>
                     <li class="nav-item">
 	                    <a href="#" class="nav-link">
-                            <?php echo $_SESSION['email']; ?>
+                            <?php echo $_POST['email']; ?>
                         </a>
 	                </li>
 	            </ul>
@@ -88,7 +99,7 @@ session_start();
 	                                        <span class="input-group-addon">
 	                                            <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text" class="form-control" placeholder="First Name">
+	                                        <input type="text" class="form-control" placeholder="First Name" value=" <?php echo $_POST['first_name']; ?>>
 	                                    </div>
                                     </div>
                                     <div class="col-md-6">
@@ -97,7 +108,7 @@ session_start();
 											<span class="input-group-addon">
 												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text" class="form-control" placeholder="Last Name">
+											<input type="text" value=" <?php echo $_POST['last_name']; ?>class="form-control" placeholder="Last Name">
 										</div>
                                     </div>
                                 </div> <!--ends first row-->
@@ -107,13 +118,13 @@ session_start();
 											<span class="input-group-addon">
 												<i class="nc-icon nc-tag-content"></i>
 											</span>
-											<input type="text" class="form-control" placeholder="Title">
+											<input type="text" value=" <?php echo $_POST['title']; ?>class="form-control" placeholder="Title">
 										</div>
                            
 
                             <!--Text Area for Description-->
                                 <label>Description</label>
-                                <textarea class="form-control" rows="4" placeholder="Tell everyone a little about you"></textarea>
+                                <textarea class="form-control" rows="4" value=" <?php echo $_POST['description']; ?> placeholder="Tell everyone a little about you"></textarea>
                                 <div class="row">
                                     <div class="col-md-4 ml-auto mr-auto text-center">
                                         <button class="btn btn-danger btn-lg btn-fill">Update</button>
