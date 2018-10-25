@@ -6,9 +6,6 @@
  //update submitted values to $_SESSION
  //can remove the image since we are not doing it for now.
 //start session
-if (!isset($_SESSION)) {
-    session_start();
-  }
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     require('dbconnection.php');
@@ -108,7 +105,7 @@ if (!isset($_SESSION)) {
 											<span class="input-group-addon">
 												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text" value=" <?php echo $_POST['last_name']; ?>class="form-control" placeholder="Last Name">
+											<input type="text" value="<?php echo $_POST['last_name']; ?>class="form-control" placeholder="Last Name">
 										</div>
                                     </div>
                                 </div> <!--ends first row-->
@@ -118,7 +115,7 @@ if (!isset($_SESSION)) {
 											<span class="input-group-addon">
 												<i class="nc-icon nc-tag-content"></i>
 											</span>
-											<input type="text" value=" <?php echo $_POST['title']; ?>class="form-control" placeholder="Title">
+											<input type="text" value="<?php echo $_POST['title']; ?>class="form-control" placeholder="Title">
 										</div>
                            
 
