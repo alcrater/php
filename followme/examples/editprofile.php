@@ -1,38 +1,84 @@
 <?php
-//if it is not running
- //add name attribute if it is not running
- //set default values for each form element from $_SESSION
- //Update submitted values to database
- //update submitted values to $_SESSION
- //can remove the image since we are not doing it for now.
-//start session
+
+//Start session 
+
+//Uses $_SESSION['email'] to display email in navbar
+
+//Include image url. load in $_SESSION['img_url']
+
+//Need to create $_SESSION['first_name'] and $_SESSION['last_name']
+
+//Modify fm_users to add title and descripton and add them in the $_SESSION.
+
+
+
 if (!isset($_SESSION)) {
+
     session_start();
-  }
 
-  if (isset($_SESSION['email']) && isset($_POST['savebutton'])) {
-    $first_name=$_POST['first_name'];
-    $last_name=$_POST['last_name'];
-    $title=$_POST['title'];
-    $description=$_POST['description'];
-    $email=$_SESSION['email'];
-    require('dbconnection.php');
-    $updatedb="UPDATE fm_users SET first_name=\"" . $first_name . "\", last_name=\"" . $last_name . "\", title=\"" . $title . "\", description=\"" . $description . "\" WHERE email = \"" . $email . "\"";
+}
+
+
+
+if (isset($_POST['submit'])) {
+
+   require('dbconnection.php');
+
+
+
+    $email = $_POST['email'];
+
+    $email = filter_var($email, FILTER_SANITIZE_STRING);
+
+    $email = trim($email);
+
     
-    $conn->query($updatedb);
-    $sql = "SELECT * FROM fm_users WHERE email = '$email'";
-    $result = $conn->query($sql);
-    while ($row = $result->fetch_assoc()){
 
-    $_SESSION['first_name'] = $row['first_name'];
-    $_SESSION['last_name'] = $row['last_name'];
-    $_SESSION['description'] = $row['description'];
-    $_SESSION['title'] = $row['title'];
- 
-    }
+    $email = str_replace("/", "", $email);
+
+    $email = str_replace("\\", "", $email);
+
+    $email = preg_replace("/\s+/", "", $email);
+
+
+
+    $_SESSION['email'] = $email;
+
+    $_SESSION['first_name'] = $_POST['first_name'];
+
+    $_SESSION['last_name'] = $_POST['last_name'];
+
+    $_SESSION['title'] = $_POST['title'];
+
+    $_SESSION['description'] = $_POST['description'];
+
+
+
+    $first_name = $_POST['first_name'];
+
+    $last_name = $_POST['last_name'];
+
+    $title = $_POST['title'];
+
+    $description = $_POST['description'];
+
+    $user_id = $_POST['user_id'];
+
+
+
+    $sql = "UPDATE fm_users SET email = '$email', first_name = '$first_name', last_name = '$last_name', title = '$title', description = '$description' where email = '$email' ";
+
+    $conn->query($sql);
+
     header('Location: profile.php');
-    }
-    ?>
+
+   
+
+}
+
+
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -134,7 +180,7 @@ if (!isset($_SESSION)) {
                                 <textarea class="form-control" rows="4" value=" <?php echo $_POST['description']; ?> placeholder="Tell everyone a little about you"></textarea>
                                 <div class="row">
                                     <div class="col-md-4 ml-auto mr-auto text-center">
-                                        <button class="btn btn-danger btn-lg btn-fill">Update</button>
+                                    <button class="btn btn-danger btn-lg btn-fill" type="submit" name="submit">Update Info</button>
                                     </div>
                                 </div>
                             </form>
