@@ -10,7 +10,7 @@ if (!isset($_SESSION)) {
     session_start();
   }
 
-  if ($email == $row['email'] && password_verify($password, $row['password']) {
+  if (isset($_SESSION['email']) && isset($_POST['savebutton'])) {
     $first_name=$_POST['first_name'];
     $last_name=$_POST['last_name'];
     $title=$_POST['title'];
