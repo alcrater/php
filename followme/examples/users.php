@@ -22,10 +22,16 @@ if (!isset($_SESSION)) {
 
 require('dbconnection.php');
 
-      
+       
+
+
+
         $sql = "SELECT * FROM fm_users WHERE user_id";
 
         $result = $conn->query($sql);
+
+
+
 ?>
 
 <!doctype html>
@@ -44,7 +50,7 @@ require('dbconnection.php');
 
 
 
-        <title>Follow me</title>
+        <title>Users/Follower Page</title>
 
 
 
@@ -86,23 +92,23 @@ require('dbconnection.php');
 
     <div class="container">
 
-         <div class="navbar-translate">
+                        <div class="navbar-translate">
 
-        <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+               <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 
-                <span class="navbar-toggler-bar"></span>
+                             <span class="navbar-toggler-bar"></span>
 
-                  <span class="navbar-toggler-bar"></span>
+                                   <span class="navbar-toggler-bar"></span>
 
-                <span class="navbar-toggler-bar"></span>
+                                   <span class="navbar-toggler-bar"></span>
 
                </button>
 
                <a class="navbar-brand" href="#">Follow Me</a>
 
-                 </div>
+                        </div>
 
-                 <div class="collapse navbar-collapse" id="navbarToggler">
+                        <div class="collapse navbar-collapse" id="navbarToggler">
 
                     <ul class="navbar-nav ml-auto">
 
@@ -112,9 +118,13 @@ require('dbconnection.php');
 
                         </li>
 
-                         <li class="nav-item">
+                                                                        <li class="nav-item">
 
-                            <a href="#" class="nav-link">  <?php echo $_SESSION['email']; ?> </a>
+                            <a href="#" class="nav-link">
+
+                                                                                                <?php echo $_SESSION['email']; ?>
+
+                                                                                        </a>
 
                         </li>
 
@@ -130,7 +140,7 @@ require('dbconnection.php');
 
     <div class="wrapper">
 
-      <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/profileimg.jpg');">
+      <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
 
                           <div class="filter"></div>
 
@@ -154,43 +164,45 @@ require('dbconnection.php');
 
 
 
-                             while ($row = $result->fetch_assoc()) {
+                                                while ($row = $result->fetch_assoc()) {
 
-                              $first_name = $row['first_name'];
+                                                        $first_name = $row['first_name'];
 
-                                $last_name = $row['last_name'];
-                                
-                                $img_url = $row['img_url'];
+                                                        $last_name = $row['last_name'];
 
-                              $title = $row['title'];
-                                
-                              echo "<li>
+                                                        $img_url = $row['img_url'];
 
-                          <div class=\"row\">
+                                                        $title = $row['title'];
 
-                           <div class=\"col-md-2 col-sm-2 ml-auto mr-auto\">
 
-                            <img src=\"$img_url\" alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">
 
-                              </div>
+                                                        echo "<li>
 
-                           <div class=\"col-md-7 col-sm-4  ml-auto mr-auto\">
+                                                                <div class=\"row\">
 
-                           <h6>$first_name $last_name<br/><small>$title</small></h6>
+                                                                        <div class=\"col-md-2 col-sm-2 ml-auto mr-auto\">
 
-                            </div>
+                                                                                <img src=\"$img_url\" alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">
 
-                          <div class=\"col-md-3 col-sm-2  ml-auto mr-auto\">
+                                                                        </div>
 
-                           <div class=\"form-check\">
+                                                                        <div class=\"col-md-7 col-sm-4  ml-auto mr-auto\">
 
-                              <label class=\"form-check-label\">
+                                                                                <p>$first_name $last_name<br/><small>$title</small></p>
 
-                              <input class=\"form-check-input\" type=\"checkbox\" value=\"\">
+                                                                        </div>
 
-                                 <span class=\"form-check-sign\"></span>
-                                
-                                 </label>
+                                                                        <div class=\"col-md-3 col-sm-2  ml-auto mr-auto\">
+
+                                                                                <div class=\"form-check\">
+
+                                                                                        <label class=\"form-check-label\">
+
+                                                                                                <input class=\"form-check-input\" type=\"checkbox\" value=\"\">
+
+                                                                                                <span class=\"form-check-sign\"></span>
+
+                                                                                        </label>
 
                                                                                 </div>
 
