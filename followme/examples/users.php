@@ -110,11 +110,11 @@ while($row = $follow_result->fetch_row()) {
               }
               echo ">";
 
-                                                echo                                    "<span class=\"form-check-sign\"></span>";
-                                                echo                            "</label>";
-                                                echo                    "</div>";
-                                                echo            "</div>";
-                                                echo    "</div>";
+                                                echo   "<span class=\"form-check-sign\"></span>";
+                                                echo   "</label>";
+                                                echo   "</div>";
+                                                echo   "</div>";
+                                                echo   "</div>";
                                                 echo "</li>";
               echo "<hr />";
 
