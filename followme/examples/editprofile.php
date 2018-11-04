@@ -22,7 +22,7 @@ if (!isset($_SESSION)) {
 
 if (isset($_POST['submit'])) {
 
-   require('example/dbconnection.php');
+   require('dbconnection.php');
 
 
 
