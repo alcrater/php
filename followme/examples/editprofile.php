@@ -78,7 +78,6 @@ if (isset($_POST['submit'])) {
 
 
 
-
 ?>
 
 <!doctype html>
@@ -293,7 +292,7 @@ if (isset($_POST['submit'])) {
 
                                     <div class="col-md-4 ml-auto mr-auto text-center">
 
-                                        <button class="btn btn-danger btn-lg btn-fill" type="submit" name="submit">Update Info Changes</button>
+                                        <button class="btn btn-danger btn-lg btn-fill" type="submit" name="submit">Save Changes</button>
 
                                     </div>
 
