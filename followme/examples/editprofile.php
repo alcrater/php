@@ -10,15 +10,11 @@
 
 //Modify fm_users to add title and descripton and add them in the $_SESSION.
 
-
-
 if (!isset($_SESSION)) {
 
     session_start();
 
 }
-
-
 
 if (isset($_POST['submit'])) {
 
@@ -52,8 +48,6 @@ if (isset($_POST['submit'])) {
 
     $_SESSION['description'] = $_POST['description'];
 
-
-
     $first_name = $_POST['first_name'];
 
     $last_name = $_POST['last_name'];
@@ -63,7 +57,6 @@ if (isset($_POST['submit'])) {
     $description = $_POST['description'];
 
     $user_id = $_POST['user_id'];
-
 
 
     $sql = "UPDATE fm_users SET username = '$username', first_name = '$first_name', last_name = '$last_name', title = '$title', description = '$description' where user_id = '$user_id' ";
