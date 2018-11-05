@@ -82,33 +82,33 @@ while($row = $follow_result->fetch_row()) {
                                         <ul class="list-unstyled follows">
                                                 <?php
 
-            while($row = $result->fetch_assoc()) {
+                                                  while($row = $result->fetch_assoc()) {
 
-              $user_id = $row['user_id'];
+                                                   $user_id = $row['user_id'];
 
-              if ($user_id == $userid){
+                                                     if ($user_id == $userid){
 
-              }
-              else {
+                                                    }
+                                                    else {
 
-              echo "<li>";
+                                             echo "<li>";
                                                 echo    "<div class=\"row\">";
-                                                echo            "<div class=\"col-md-2 col-sm-2 ml-auto mr-auto\">";
-                                                echo                    "<img src=" . $row['image_url'] . " alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">";
-                                                echo            "</div>";
-                                                echo            "<div class=\"col-md-7 col-sm-4  ml-auto mr-auto\">";
-                                                echo                    "<h6>" . $row['first_name'] . " " . $row['last_name'] . "<br/><small>" . $row['title'] . "</small></h6>";
-                                                echo            "</div>";
-                                                echo            "<div class=\"col-md-3 col-sm-2  ml-auto mr-auto\">";
-                                                echo                    "<div class=\"form-check\">";
-                                                echo                            "<label class=\"form-check-label\">";
-                                                echo                                    "<input class=\"form-check-input\" type=\"checkbox\" value=\"\"";
+                                                echo    "<div class=\"col-md-2 col-sm-2 ml-auto mr-auto\">";
+                                                echo   "<img src=" . $row['image_url'] . " alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">";
+                                                echo    "</div>";
+                                                echo      "<div class=\"col-md-7 col-sm-4  ml-auto mr-auto\">";
+                                                echo      "<h6>" . $row['first_name'] . " " . $row['last_name'] . "<br/><small>" . $row['title'] . "</small></h6>";
+                                                echo      "</div>";
+                                                echo     "<div class=\"col-md-3 col-sm-2  ml-auto mr-auto\">";
+                                                echo    "<div class=\"form-check\">";
+                                                echo     "<label class=\"form-check-label\">";
+                                                echo     "<input class=\"form-check-input\" type=\"checkbox\" value=\"\"";
 
-              if (in_array($user_id, $following_user_ids)) {
+                                        if (in_array($user_id, $following_user_ids)) {
 
-                echo " checked";
-              }
-              echo ">";
+                                            echo " checked";
+                                        }
+                                                 echo ">";
 
                                                 echo   "<span class=\"form-check-sign\"></span>";
                                                 echo   "</label>";
@@ -116,10 +116,10 @@ while($row = $follow_result->fetch_row()) {
                                                 echo   "</div>";
                                                 echo   "</div>";
                                                 echo "</li>";
-              echo "<hr />";
+                                                  echo "<hr />";
 
-              }
-            }
+                                            }
+                                            }
                                                 ?>
 
                                         </ul>

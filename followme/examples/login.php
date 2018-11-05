@@ -26,6 +26,7 @@ if (isset($_POST['email'])){
     $_SESSION['last_name'] = $row['last_name'];
     $_SESSION['title'] = $row['title'];
     $_SESSION['description'] = $row['description'];
+    $_SESSION['userid'] = $row['userid'];
         
     } //closes if statement
     
