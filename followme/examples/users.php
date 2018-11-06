@@ -1,15 +1,55 @@
-<?php
+<!--<?php
+
+//Need to do for next class
+// add submit button this will allow user to hit submit once they checked or unchecked someone. (follow or unfollow)
+//create a while loop to search for submitted data followers
+//if checked that follower remains
+//if unchecked  that follower gets removed or hidden
+
 if (!isset($_SESSION)) {
 session_start();
 }
 require('dbconnection.php');
+//sql code from fm_user database
 $sql = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
 $result = $conn->query($sql);
+
+//sql code from fm_followers database
 $userid = $_SESSION['user_id'];
 $sql = "SELECT following_user_id FROM fm_followers WHERE user_id = '$user_id'";
 $follow_result = $conn->query($sql);
+
+//while loop for to check row of following user id
 while($row = $follow_result->fetch_row()) {
 $following_user_id[] = $row[0];
+}
+?>-->
+
+
+<?php
+if (!isset($_SESSION)) {
+session_start();
+}
+function checked($follower_check, $value){
+require('dbconnection.php');
+//$user = $_SESSION['user_id'];
+//echo $user . "is the value of the user";
+
+if(!empty($_POST[$follower_check])) {
+echo "The follower check value is" . $_POST[$follower_check];
+echo $_POST[$follower_check] . "is follower check value";
+echo "The value of value is" . $value;
+//foreach($_POST[$follower_check] as $value_check){
+echo "value_check value is" . $value_check;
+echo "The value of value is" . $value;
+//if($value in $_POST[$follower_check])
+if(in_array($value, $_POST[$follower_check])){
+echo "You are following";
+return true;
+}
+//}
+}
+return false;
 }
 ?>
 <!DOCTYPE html>
@@ -67,11 +107,13 @@ $following_user_id[] = $row[0];
 <div class="row">
 <div class="col-md-6 ml-auto mr-auto">
 <ul class="list-unstyled follows">
+
 <?php
 while($row = $result->fetch_assoc()) {
 $user_id = $row['user_id'];
 if ($user_id == $userid){
 }
+
 else {
 echo "<li>";
 echo "<div class=\"row\">";
@@ -85,6 +127,7 @@ echo "<div class=\"col-md-3 col-sm-2 ml-auto mr-auto\">";
 echo "<div class=\"form-check\">";
 echo "<label class=\"form-check-label\">";
 echo "<input class=\"form-check-input\" type=\"checkbox\" value=\"\"";
+
 if (in_array($user_id, $following_user_ids)) {
 echo " checked";
 }
@@ -99,6 +142,7 @@ echo "<hr />";
 }
 }
 ?>
+
 </ul>
 </div>
 </div>
@@ -130,4 +174,14 @@ echo "<hr />";
 <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- Paper Kit Initialization snd functons -->
 <script src="../assets/js/paper-kit.js?v=2.1.0"></script>
+
+<!--
+if(!isset($_POST['name_of_checkbox'])){
+  // Fill database with some empty value.
+} else {
+  // Do what you need to do for checked value.
+}-->
+
+
+
 </html>
