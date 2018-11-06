@@ -1,4 +1,4 @@
-<!--<?php
+<?php
 
 //Need to do for next class
 // add submit button this will allow user to hit submit once they checked or unchecked someone. (follow or unfollow)
@@ -23,35 +23,10 @@ $follow_result = $conn->query($sql);
 while($row = $follow_result->fetch_row()) {
 $following_user_id[] = $row[0];
 }
-?>-->
-
-
-<?php
-if (!isset($_SESSION)) {
-session_start();
-}
-function checked($follower_check, $value){
-require('dbconnection.php');
-//$user = $_SESSION['user_id'];
-//echo $user . "is the value of the user";
-
-if(!empty($_POST[$follower_check])) {
-echo "The follower check value is" . $_POST[$follower_check];
-echo $_POST[$follower_check] . "is follower check value";
-echo "The value of value is" . $value;
-//foreach($_POST[$follower_check] as $value_check){
-echo "value_check value is" . $value_check;
-echo "The value of value is" . $value;
-//if($value in $_POST[$follower_check])
-if(in_array($value, $_POST[$follower_check])){
-echo "You are following";
-return true;
-}
-//}
-}
-return false;
-}
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
