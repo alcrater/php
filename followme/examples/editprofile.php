@@ -79,47 +79,47 @@ if (isset($_POST['submit'])) {
 
 <head>
 
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
 
-	<link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
 
-	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-
-
-	<title>Profile Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <title>Profile Home</title>
+
+
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
     <meta name="viewport" content="width=device-width" />
 
 
 
-	<!-- Bootstrap core CSS     -->
+    <!-- Bootstrap core CSS     -->
 
-	<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
-	<link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+    <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
 
 
 
-	<!--  CSS for Demo Purpose, don't include it in your project     -->
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
 
-	<link href="../assets/css/demo.css" rel="stylesheet" />
+    <link href="../assets/css/demo.css" rel="stylesheet" />
 
 
 
     <!--     Fonts and icons     -->
 
-	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
 
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 
-	<link href="../assets/css/nucleo-icons.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet">
 
 
 
@@ -131,35 +131,35 @@ if (isset($_POST['submit'])) {
 
         <div class="container">
 
-			<div class="navbar-translate">
+            <div class="navbar-translate">
 
-	            <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 
-					<span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
 
-					<span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
 
-					<span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
 
-	            </button>
+                </button>
 
-	            <a class="navbar-brand" href="#">Follow Me</a>
+                <a class="navbar-brand" href="#">Follow Me</a>
 
-			</div>
+            </div>
 
-			<div class="collapse navbar-collapse" id="navbarToggler">
+            <div class="collapse navbar-collapse" id="navbarToggler">
 
-	            <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto">
 
-	                <li class="nav-item">
+                    <li class="nav-item">
 
-	                    <a href="login.php" class="nav-link">Login</a>
+                        <a href="login.php" class="nav-link">Login</a>
 
                     </li>
 
                     <li class="nav-item">
 
-	                    <a href="#" class="nav-link">
+                        <a href="#" class="nav-link">
 
                             <?php 
 
@@ -169,13 +169,13 @@ if (isset($_POST['submit'])) {
 
                         </a>
 
-	                </li>
+                    </li>
 
-	            </ul>
+                </ul>
 
-	        </div>
+            </div>
 
-		</div>
+        </div>
 
     </nav>
 
@@ -185,7 +185,7 @@ if (isset($_POST['submit'])) {
 
         <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
 
-			<div class="filter"></div>
+            <div class="filter"></div>
 
         </div>
 
@@ -207,17 +207,17 @@ if (isset($_POST['submit'])) {
 
                                         <label>First Name:</label>
 
-										<div class="input-group">
+                                        <div class="input-group">
 
-	                                        <span class="input-group-addon">
+                                            <span class="input-group-addon">
 
-	                                            <i class="nc-icon nc-single-02"></i>
+                                                <i class="nc-icon nc-single-02"></i>
 
-	                                        </span>
+                                            </span>
 
-	                                        <input type="text" class="form-control" placeholder="First Name" name="first_name" value="<?php echo $_SESSION['first_name'];?>">
+                                            <input type="text" class="form-control" placeholder="First Name" name="first_name" value="<?php echo $_SESSION['first_name'];?>">
 
-	                                    </div>
+                                        </div>
 
                                     </div>
 
@@ -225,17 +225,17 @@ if (isset($_POST['submit'])) {
 
                                         <label>Last Name:</label>
 
-										<div class="input-group">
+                                        <div class="input-group">
 
-	                                        <span class="input-group-addon">
+                                            <span class="input-group-addon">
 
-	                                            <i class="nc-icon nc-single-02"></i>
+                                                <i class="nc-icon nc-single-02"></i>
 
-	                                        </span>
+                                            </span>
 
-	                                        <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="<?php echo $_SESSION['last_name'];?>">
+                                            <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="<?php echo $_SESSION['last_name'];?>">
 
-	                                    </div>
+                                        </div>
 
                                     </div>
 
@@ -243,17 +243,17 @@ if (isset($_POST['submit'])) {
 
                                         <label>Email</label>
 
-										<div class="input-group">
+                                        <div class="input-group">
 
-											<span class="input-group-addon">
+                                            <span class="input-group-addon">
 
-												<i class="nc-icon nc-email-85"></i>
+                                                <i class="nc-icon nc-email-85"></i>
 
-											</span>
+                                            </span>
 
-											<input type="text" class="form-control" placeholder="Email" name="username" value="<?php echo $_SESSION['username'];?>">
+                                            <input type="text" class="form-control" placeholder="Email" name="username" value="<?php echo $_SESSION['username'];?>">
 
-										</div>
+                                        </div>
 
                                     </div>
 
@@ -261,17 +261,17 @@ if (isset($_POST['submit'])) {
 
                                         <label>Title:</label>
 
-										<div class="input-group">
+                                        <div class="input-group">
 
-											<span class="input-group-addon">
+                                            <span class="input-group-addon">
 
-												<!--<i class="nc-icon nc-email-85"></i>-->
+                                                <!--<i class="nc-icon nc-email-85"></i>-->
 
-											</span>
+                                            </span>
 
-											<input type="text" class="form-control" placeholder="Title" name="title" value="<?php echo $_SESSION['title'];?>">
+                                            <input type="text" class="form-control" placeholder="Title" name="title" value="<?php echo $_SESSION['title'];?>">
 
-										</div>
+                                        </div>
 
                                     </div>
 
@@ -303,7 +303,7 @@ if (isset($_POST['submit'])) {
 
     </div>
 
-	<footer class="footer section-dark">
+    <footer class="footer section-dark">
 
         <div class="container">
 
