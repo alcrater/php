@@ -150,12 +150,7 @@ echo "<hr />";
 <!-- Paper Kit Initialization snd functons -->
 <script src="../assets/js/paper-kit.js?v=2.1.0"></script>
 
-<!--
-if(!isset($_POST['name_of_checkbox'])){
-  // Fill database with some empty value.
-} else {
-  // Do what you need to do for checked value.
-}-->
+
 
 
 
