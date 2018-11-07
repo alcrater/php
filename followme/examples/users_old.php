@@ -11,12 +11,13 @@ $resultfm2 = $conn->query($sqlfm2);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 while ($rows = $resultfm2->fetch_assoc()) {
-$first_name = $rows['first_name'];
 
-if ($_POST["$first_name"] == "yes") {
+$user_id = $rows['user_id'];
+
+if ($_POST["$user_id"] == "yes") {
 
 $follow_id = $rows['user_id'];
-$sqlfm2 = "INSERT IGNORE INTO fm_follows (user_id, following_user_id) VALUES ('$user_id','$follow_id')";
+$sqlfm2 = "INSERT IGNORE INTO fm_followers(user_id, following_user_id) VALUES ('$user_id','$follow_id')";
 $conn->query($sqlfm2);
 }
 else {
@@ -127,7 +128,9 @@ $following_user_id[] = $row[0];
 								<div class="col-md-3 col-sm-2  ml-auto mr-auto">
 									<div class="form-check">
 										<label class="form-check-label"><!--echo if checked only if followed -->
-											<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="<?php if (in_array($row['user_id'], $fm_following_user_id)){echo "checked";}?>" <?php if (in_array($row['user_id'], $fm_following_user_id)){echo "checked";}?> >
+											<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>"
+                                            value="yes" 
+                                            <?php if (in_array($row['user_id'], $fm_following_user_id)){echo "checked";}?> >
 											<span class="form-check-sign"></span>
 										</label>
 									</div>
