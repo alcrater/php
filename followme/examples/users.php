@@ -9,7 +9,7 @@
 if (!isset($_SESSION)) {
   session_start();
 }
-require('dbConnect.php'); //bring in database connection
+require('dbconnection.php'); //bring in database connection
 
 //for if not logged in
   if (!isset($_SESSION['email'])){
@@ -25,14 +25,14 @@ $result = $conn->query($sql);
 $user_id = $_SESSION['user_id'];
 
 
-$sql = "SELECT fm_following_user_id FROM fm_follows WHERE fm_user_id = $user_id";
+$sql = "SELECT following_user_id FROM fm_followers WHERE fm_user_id = $user_id";
 
 $following_result = $conn->query($sql);
 
 //indexes
 while($row = $following_result->fetch_row()){
 
-  $fm_following_user_id[] = $row[0];
+  $following_user_id[] = $row[0];
 }
 
 ?>
