@@ -25,7 +25,7 @@ $result = $conn->query($sql);
 $user_id = $_SESSION['user_id'];
 
 
-$sql = "SELECT following_user_id FROM fm_followers WHERE fm_user_id = $user_id";
+$sql = "SELECT following_user_id FROM fm_followers WHERE user_id = $user_id";
 
 $following_result = $conn->query($sql);
 
