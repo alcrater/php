@@ -4,7 +4,7 @@ session_start();
 }
 require('dbconnection.php');
 
-$user_id = $_SESSION['user_id'];
+$email= $_SESSION['user_id'];
 
 $sqlfm2 = "SELECT * FROM fm_users";
 
