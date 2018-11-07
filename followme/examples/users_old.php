@@ -6,23 +6,23 @@ require('dbconnection.php');
 
 $user_id = $_SESSION['user_id'];
 
-$sql2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
-$result2 = $conn->query($sql2);
+$sqlfm2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
+$resultfm2 = $conn->query($sqlfm2);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-while ($row2 = $result2->fetch_assoc()) {
-$first_name = $row2['first_name'];
+while ($rows = $resultfm2->fetch_assoc()) {
+$first_name = $rows['first_name'];
 
 if ($_POST["$first_name"] == "yes") {
 
-$follow_id = $row2['user_id'];
-$sql2 = "INSERT IGNORE INTO fm_follows (user_id, following_user_id) VALUES ('$user_id','$follow_id')";
-$conn->query($sql2);
+$follow_id = $rows['user_id'];
+$sqlfm2 = "INSERT IGNORE INTO fm_follows (user_id, following_user_id) VALUES ('$user_id','$follow_id')";
+$conn->query($sqlfm2);
 }
 else {
-$follow_id = $row2['user_id'];
-$sql2 = "DELETE FROM fm_followers WHERE user_id = '$user_id' AND following_user_id = '$follow_id'";
-$conn->query($sql2);
+$follow_id = $rows['user_id'];
+$sqlfm2 = "DELETE FROM fm_followers WHERE user_id = '$user_id' AND following_user_id = '$follow_id'";
+$conn->query($sqlfm2);
 }
 }
 }
