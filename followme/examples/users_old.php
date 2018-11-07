@@ -6,7 +6,9 @@ require('dbconnection.php');
 
 $user_id = $_SESSION['user_id'];
 
-$sqlfm2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
+$sqlfm2 = "SELECT * FROM fm_users";
+
+//$sqlfm2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
 $resultfm2 = $conn->query($sqlfm2);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,12 +18,12 @@ $userID = $row2['user_id'];
 
 if ($_POST["$userID"] == "yes") {
 
-$followID = $row2['user_id'];
+$follow_id = $row2['user_id'];
 $sqlfm2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
 $conn->query($sqlfm2);
 }
 else {
-$followID = $row2['user_id'];
+$follow_id = $row2['user_id'];
 $sqlfm2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
 $conn->query($sqlfm2);
 }
@@ -125,12 +127,12 @@ $following_user_id[] = $row[0];
 
 							<!-- title-->	<br/><small><?php 	echo $row['title'] ; ?></small></h6>
 								</div>
-								<div class="col-md-3 col-sm-2  ml-auto mr-auto">
+					<div class="col-md-3 col-sm-2  ml-auto mr-auto">
 									<div class="form-check">
 								<label class="form-check-label"><!--echo if checked only if followed -->
 								<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>"
-                              value="yes" 
-                              <?php if (in_array($row['user_id'], $fm_following_user_id)){echo "checked";}?> >
+                                 value="yes" 
+                              <?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?> >
 					     		<span class="form-check-sign"></span>
 										</label>
 									</div>
