@@ -112,45 +112,64 @@ if (!isset($_SESSION['email'])){
 		</div>
     </nav>
 
-    <div class="wrapper">
+   <div class="wrapper">
       <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
-			  <div class="filter"></div>
-		  </div>~
+                          <div class="filter"></div>
+                  </div>
 
-			<br />
-			<br />
+                        <br />
+                        <br />
 
-    <form>
-      
-			<div class="row">
-				<div class="col-md-6 ml-auto mr-auto">
-					<ul class="list-unstyled follows">
-						 <?php while($row = $result->fetch_assoc()){ ?>
-						<li>
-							<div class="row">
-								<div class="col-md-2 col-sm-2 ml-auto mr-auto">
-								<!-- image-->	<img src="<?php  echo  $row['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-								</div>
-								<div class="col-md-7 col-sm-4  ml-auto mr-auto">
-							<!--name-->		<h6><?php echo $row['first_name'] ." " . $row['last_name'] ; ?>
+                        <div class="row">
+                                <div class="col-md-6 ml-auto mr-auto">
+                                        <ul class="list-unstyled follows">
+            <form method="post" action="">
+                                                <?php
 
-							<!-- title-->	<br/><small><?php 	echo $row['title'] ; ?></small></h6>
-								</div>
-					<div class="col-md-3 col-sm-2  ml-auto mr-auto">
-									<div class="form-check">
-								<label class="form-check-label"><!--echo if checked only if followed -->
-								<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="<?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?>" <?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?> >
-											<span class="form-check-sign"></span>
-										</label>
-									</div>
-								</div>
-							</div>
-						</li>
-						<hr />
-					<?php } ?>
-					</ul>
-				</div>
-			</div>
+            while($row = $result->fetch_assoc()) {
+
+              $user_id = $row['user_id'];
+
+              if ($user_id == $userid){
+
+              }
+              else {
+
+              echo "<li>";
+                                                echo    "<div class=\"row\">";
+                                                echo            "<div class=\"col-md-2 col-sm-2 ml-auto mr-auto\">";
+                                                echo                    "<img src=" . $row['image_url'] . " alt=\"Circle Image\" class=\"img-circle img-no-padding img-responsive\">";
+                                                echo            "</div>";
+                                                echo            "<div class=\"col-md-7 col-sm-4  ml-auto mr-auto\">";
+                                                echo                    "<h6>" . $row['first_name'] . " " . $row['last_name'] . "<br/><small>" . $row['title'] . "</small></h6>";
+                                                echo            "</div>";
+                                                echo            "<div class=\"col-md-3 col-sm-2  ml-auto mr-auto\">";
+                                                echo                    "<div class=\"form-check\">";
+                                                echo                            "<label class=\"form-check-label\">";
+                                                echo                                    "<input class=\"form-check-input\" name=" . $row['first_name'] . " type=\"checkbox\" value=\"yes\"";
+
+              if (in_array($user_id, $following_user_ids)) {
+
+                echo " checked";
+              }
+              echo ">";
+                                                echo                                    "<span class=\"form-check-sign\"></span>";
+                                                echo                            "</label>";
+                                                echo                    "</div>";
+                                                echo            "</div>";
+                                                echo    "</div>";
+                                                echo "</li>";
+              echo "<hr />";
+
+              }
+            }
+                                                ?>
+            <input type="submit">
+          </form>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
 
 
       <div class="row">
