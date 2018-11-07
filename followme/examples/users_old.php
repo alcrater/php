@@ -14,9 +14,9 @@ $result2 = $conn->query($sql2);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 while ($row2 = $result2->fetch_assoc()) {
 
+$user_id = $row2['user_id'];
 
-
-if ($_POST["$userID"] == "yes") {
+if ($_POST["$user_id"] == "yes") {
 
 $follow_id = $row2['user_id'];
 $sql2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
