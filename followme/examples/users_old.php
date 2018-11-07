@@ -12,11 +12,11 @@ $sqlfm2 = "SELECT * FROM fm_users";
 $resultfm2 = $conn->query($sqlfm2);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-/*while ($row2 = $resultfm2->fetch_assoc()) {
+while ($row2 = $resultfm2->fetch_assoc()) {
 
 $userID = $row2['user_id'];
 
-if ($_POST["$userID"] == "yes") {
+/*if ($_POST["$userID"] == "yes") {
 
 $follow_id = $row2['user_id'];
 $sqlfm2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
