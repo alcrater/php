@@ -17,13 +17,13 @@ $userID = $row2['user_id'];
 
 if ($_POST["$userID"] == "yes") {
 
-$followID = $row2['user_id'];
-$sql2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$followID')";
+$follow_id = $row2['user_id'];
+$sql2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
 $conn->query($sql2);
 }
 else {
 $followID = $row2['user_id'];
-$sql2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$followID'";
+$sql2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
 $conn->query($sql2);
 }
 }
