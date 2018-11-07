@@ -4,7 +4,7 @@ session_start();
 }
 require('dbconnection.php');
 
-$userid = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 
 $sql2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
 $result2 = $conn->query($sql2);

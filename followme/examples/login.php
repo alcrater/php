@@ -20,7 +20,7 @@ while ($row = $result->fetch_assoc()){
 
 if ($email == $row['email'] && password_verify($password, $row['password']) ){
 //set variables from profile.php page
-$_SESSION['userid'] = $userid;
+$_SESSION['user_id'] = $user_id;
 $_SESSION['email'] = $email;
 $_SESSION['img_url'] = $row['image_url'];
 $_SESSION['first_name'] = $row['first_name'];
