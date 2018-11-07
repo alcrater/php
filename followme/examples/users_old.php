@@ -90,7 +90,7 @@ $following_user_id[] = $row[0];
 	                    <a href="editprofile.php" class="nav-link">Edit Profile</a>
 	                </li>
                     <li class="nav-item">
-                        <a href="users.php" class="nav-link">Users</a>
+                        <a href="users_old.php" class="nav-link">Users</a>
                     </li>
                     <li class="nav-item">
 	                    <a href="#" class="nav-link">
