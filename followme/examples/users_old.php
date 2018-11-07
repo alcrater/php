@@ -14,7 +14,7 @@ $result2 = $conn->query($sql2);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 while ($row2 = $result2->fetch_assoc()) {
 
-$userID = $row2['user_id'];
+
 
 if ($_POST["$userID"] == "yes") {
 
