@@ -4,32 +4,41 @@ session_start();
 }
 require('dbconnection.php');
 
-$userid = $_SESSION['userid'];
-$sql2 = "SELECT userid, first_name, last_name, title, image_url FROM fm_users";
+$userid = $_SESSION['user_id'];
+
+$sql2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
 $result2 = $conn->query($sql2);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 while ($row2 = $result2->fetch_assoc()) {
 $firstname = $row2['first_name'];
+
 if ($_POST["$firstname"] == "yes") {
-$follow_id = $row2['userid'];
-$sql2 = "INSERT IGNORE INTO fm_followers (user_id, following_user_id) VALUES ('$userid','$follow_id')";
+
+$follow_id = $row2['user_id'];
+$sql2 = "INSERT IGNORE INTO fm_follows (user_id, following_user_id) VALUES ('$userid','$follow_id')";
 $conn->query($sql2);
 }
 else {
-$follow_id = $row2['userid'];
-$sql2 = "DELETE FROM fm_followers WHERE userid = '$userid' AND following_user_id = '$follow_id'";
+$follow_id = $row2['user_id'];
+$sql2 = "DELETE FROM fm_followers WHERE user_id = '$userid' AND following_user_id = '$follow_id'";
 $conn->query($sql2);
 }
 }
 }
-$sql = "SELECT userid, first_name, last_name, title, image_url FROM fm_users";
+
+$sql = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
 $result = $conn->query($sql);
-$sql = "SELECT following_userid FROM fm_followers WHERE userid = '$userid'";
+
+$sql = "SELECT following_user_id FROM fm_followers WHERE user_id = '$userid'";
+
 $follow_result = $conn->query($sql);
+
 while($row = $follow_result->fetch_row()) {
-$following_userid[] = $row[0];
+$following_user_id[] = $row[0];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,19 +46,25 @@ $following_userid[] = $row[0];
 <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
 <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
 <title>Follow Me by Andrew</title>
+
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 <meta name="viewport" content="width=device-width" />
+
 <!-- Bootstrap core CSS -->
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+
 <!-- CSS for Demo Purpose, don't include it in your project -->
 <link href="../assets/css/demo.css" rel="stylesheet" />
+
 <!-- Fonts and icons -->
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 <link href="../assets/css/nucleo-icons.css" rel="stylesheet">
 </head>
+
 <body>
 <nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="150">
 <div class="container">
@@ -81,6 +96,7 @@ $following_userid[] = $row[0];
 </div>
 </div>
 </nav>
+
 <div class="wrapper">
 <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
 <div class="filter">
@@ -110,6 +126,7 @@ echo "<div class=\"col-md-3 col-sm-2 ml-auto mr-auto\">";
 echo "<div class=\"form-check\">";
 echo "<label class=\"form-check-label\">";
 echo "<input class=\"form-check-input\" name=" . $row['first_name'] . " type=\"checkbox\" value=\"yes\"";
+
 if (in_array($user_id, $following_user_id)) {
 echo " checked";
 }
@@ -130,6 +147,7 @@ echo "<hr />";
 </div>
 </div>
 </div>
+
 <footer class="footer section-dark">
 <div class="container">
 <div class="row">
@@ -149,12 +167,15 @@ echo "<hr />";
 </div>
 </footer>
 </body>
+
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
 <script src="../assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+
 <!-- <script src="../assets/js/tether.min.js" type="text/javascript"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+
 <!-- Paper Kit Initialization snd functons -->
 <script src="../assets/js/paper-kit.js?v=2.1.0"></script>
 </html>
