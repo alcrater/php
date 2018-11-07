@@ -4,28 +4,28 @@ session_start();
 }
 require('dbconnection.php');
 
-$email= $_SESSION['user_id'];
+$user_id= $_SESSION['user_id'];
 
-$sqlfm2 = "SELECT * FROM fm_users";
+$sql2 = "SELECT * FROM fm_users";
 
 //$sqlfm2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
-$resultfm2 = $conn->query($sqlfm2);
+$result2 = $conn->query($sql2);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-while ($row2 = $resultfm2->fetch_assoc()) {
+while ($row2 = $result2->fetch_assoc()) {
 
-$user_ID = $row2['user_id'];
+$userID = $row2['user_id'];
 
-if ($_POST["$user_ID"] == "yes") {
+if ($_POST["$userID"] == "yes") {
 
 $follow_id = $row2['user_id'];
-$sqlfm2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
-$conn->query($sqlfm2);
+$sql2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
+$conn->query($sql2);
 }
 else {
 $follow_id = $row2['user_id'];
-$sqlfm2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
-$conn->query($sqlfm2);
+$sql2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
+$conn->query($sql2);
 }
 }
 }
