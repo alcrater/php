@@ -12,17 +12,17 @@ $resultfm2 = $conn->query($sqlfm2);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 while ($rows = $resultfm2->fetch_assoc()) {
 
-$user_id = $rows['user_id'];
+$userID = $rows['user_id'];
 
-if ($_POST["$user_id"] == "yes") {
+if ($_POST["$userID"] == "yes") {
 
 $follow_id = $rows['user_id'];
-$sqlfm2 = "INSERT IGNORE INTO fm_followers(user_id, following_user_id) VALUES ('$user_id','$follow_id')";
+$sqlfm2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
 $conn->query($sqlfm2);
 }
 else {
 $follow_id = $rows['user_id'];
-$sqlfm2 = "DELETE FROM fm_followers WHERE user_id = '$user_id' AND following_user_id = '$follow_id'";
+$sqlfm2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
 $conn->query($sqlfm2);
 }
 }
