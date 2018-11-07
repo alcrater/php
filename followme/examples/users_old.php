@@ -134,8 +134,8 @@ $following_user_id[] = $row[0];
 					<div class="col-md-3 col-sm-2  ml-auto mr-auto">
 									<div class="form-check">
 								<label class="form-check-label"><!--echo if checked only if followed -->
-								<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="yes" <?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?> >
-					     		<span class="form-check-sign"></span>
+								<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="<?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?>" <?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?> >
+											<span class="form-check-sign"></span>
 										</label>
 									</div>
 								</div>
