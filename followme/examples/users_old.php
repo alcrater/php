@@ -12,7 +12,7 @@ $sqlfm2 = "SELECT * FROM fm_users";
 $resultfm2 = $conn->query($sqlfm2);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-while ($row2 = $resultfm2->fetch_assoc()) {
+/*while ($row2 = $resultfm2->fetch_assoc()) {
 
 $userID = $row2['user_id'];
 
@@ -22,7 +22,7 @@ $follow_id = $row2['user_id'];
 $sqlfm2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
 $conn->query($sqlfm2);
 }
-/*else {
+else {
 $follow_id = $row2['user_id'];
 $sqlfm2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
 $conn->query($sqlfm2);
