@@ -22,13 +22,13 @@ $follow_id = $row2['user_id'];
 $sqlfm2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
 $conn->query($sqlfm2);
 }
-else {
+/*else {
 $follow_id = $row2['user_id'];
 $sqlfm2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
 $conn->query($sqlfm2);
 }
 }
-}
+}*/
 
 $sql = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
 $result = $conn->query($sql);
@@ -95,7 +95,7 @@ $following_user_id[] = $row[0];
                     </li>
                     <li class="nav-item">
 	                    <a href="#" class="nav-link">
-												<?php echo $_SESSION['email']; ?>
+				<?php echo $_SESSION['email']; ?>
 											</a>
 	                </li>
 	            </ul>
