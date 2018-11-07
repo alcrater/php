@@ -1,45 +1,71 @@
 <?php
+//Start Session if it is not running
+//Add name attributes to form elements
+//Set default values for each form element from $_SESSION
+//Update submitted values to database
+//Upldate submitted values to $_SESSION
+
+
 if (!isset($_SESSION)) {
-session_start();
+  session_start();
 }
-require('dbconnection.php');
+require('dboonnection.php'); //bring in database connection
 
-$user_id= $_SESSION['user_id'];
+//for if not logged in
+  if (!isset($_SESSION['email'])){
+    header('location: login.php');
+  }
 
-$sql2 = "SELECT * FROM fm_users";
 
-//$sqlfm2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
+//create the sql Query
+$sql2 = "SELECT * from fm_users;";
+//execute the sql query
 $result2 = $conn->query($sql2);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-while ($row2 = $result2->fetch_assoc()) {
+$user_id = $_SESSION['user_id'];
 
-$userID = $row2['user_id'];
+//Post Data once submit is it.
 
-if ($_POST["$userID"] == "yes") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-$follow_id = $row2['user_id'];
-$sql2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
-$conn->query($sql2);
-}
+  while ($row2 = $result2->fetch_assoc()) {
+
+    $userID = $row2['user_id'];
+
+    if ($_POST["$userID"] == "yes") {
+
+      $followID = $row2['user_id'];
+      $sql2 = "INSERT IGNORE INTO fm_follows(fm_user_id, fm_following_user_id) VALUES ('$user_id', '$followID')";
+      $conn->query($sql2);
+
+    }
 else {
-$follow_id = $row2['user_id'];
-$sql2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
-$conn->query($sql2);
-}
-}
+
+    $followID = $row2['user_id'];
+    $sql2 = "DELETE FROM fm_follows WHERE fm_user_id = '$user_id' AND fm_following_user_id = '$followID'";
+    $conn->query($sql2);
+    }
+
+
+  }
+
+
+
 }
 
-$sql = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
+$sql = "SELECT * from fm_users;";
+//execute the sql query
 $result = $conn->query($sql);
 
-$sql = "SELECT following_user_id FROM fm_followers WHERE user_id = '$user_id'";
+$sql = "SELECT fm_following_user_id FROM fm_follows WHERE fm_user_id = $user_id";
 
-$follow_result = $conn->query($sql);
+$following_result = $conn->query($sql);
 
-while($row = $follow_result->fetch_row()) {
-$following_user_id[] = $row[0];
+while($row = $following_result->fetch_row()){
+
+  $fm_following_user_id[] = $row[0];
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +156,7 @@ $following_user_id[] = $row[0];
 					<div class="col-md-3 col-sm-2  ml-auto mr-auto">
 									<div class="form-check">
 								<label class="form-check-label"><!--echo if checked only if followed -->
-								<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="yes" <?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?> >
+								<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="yes" <?php if (in_array($row['user_id'], $fm_following_user_id)){echo "checked";}?> >
 					     		<span class="form-check-sign"></span>
 										</label>
 									</div>
