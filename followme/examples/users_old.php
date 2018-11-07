@@ -1,65 +1,45 @@
 <?php
-
 if (!isset($_SESSION)) {
-  session_start();
+session_start();
 }
-require('dboonnection.php'); //bring in database connection
+require('dbconnection.php');
 
+$user_id= $_SESSION['user_id'];
 
-  if (!isset($_SESSION['email'])){
-    header('location: login.php');
-  }
+$sql2 = "SELECT * FROM fm_users";
 
-
-//create the sql Query
-$sql2 = "SELECT * from fm_users;";
-//execute the sql query
+//$sqlfm2 = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
 $result2 = $conn->query($sql2);
 
-$user_id = $_SESSION['user_id'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+while ($row2 = $result2->fetch_assoc()) {
 
+$userID = $row2['user_id'];
 
+if ($_POST["$userID"] == "yes") {
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-  while ($row2 = $result2->fetch_assoc()) {
-
-    $userID = $row2['user_id'];
-
-    if ($_POST["$userID"] == "yes") {
-
-      $followID = $row2['user_id'];
-      $sql2 = "INSERT IGNORE INTO fm_follows(fm_user_id, following_user_id) VALUES ('$user_id', '$followID')";
-      $conn->query($sql2);
-
-    }
+$follow_id = $row2['user_id'];
+$sql2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
+$conn->query($sql2);
+}
 else {
-
-    $followID = $row2['user_id'];
-    $sql2 = "DELETE FROM fm_follows WHERE fm_user_id = '$user_id' AND following_user_id = '$followID'";
-    $conn->query($sql2);
-    }
-
-
-  }
-
-
-
+$follow_id = $row2['user_id'];
+$sql2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
+$conn->query($sql2);
+}
+}
 }
 
-$sql = "SELECT * from fm_users;";
-//execute the sql query
+$sql = "SELECT user_id, first_name, last_name, title, image_url FROM fm_users";
 $result = $conn->query($sql);
 
-$sql = "SELECT following_user_id FROM fm_follows WHERE fm_user_id = $user_id";
+$sql = "SELECT following_user_id FROM fm_followers WHERE user_id = '$user_id'";
 
-$following_result = $conn->query($sql);
+$follow_result = $conn->query($sql);
 
-while($row = $following_result->fetch_row()){
-
-  $following_user_id[] = $row[0];
+while($row = $follow_result->fetch_row()) {
+$following_user_id[] = $row[0];
 }
-
 ?>
 
 <!DOCTYPE html>
