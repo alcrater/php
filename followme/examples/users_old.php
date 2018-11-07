@@ -1,17 +1,11 @@
 <?php
-//Start Session if it is not running
-//Add name attributes to form elements
-//Set default values for each form element from $_SESSION
-//Update submitted values to database
-//Upldate submitted values to $_SESSION
-
 
 if (!isset($_SESSION)) {
   session_start();
 }
 require('dboonnection.php'); //bring in database connection
 
-//for if not logged in
+
   if (!isset($_SESSION['email'])){
     header('location: login.php');
   }
@@ -24,7 +18,7 @@ $result2 = $conn->query($sql2);
 
 $user_id = $_SESSION['user_id'];
 
-//Post Data once submit is it.
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -35,14 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if ($_POST["$userID"] == "yes") {
 
       $followID = $row2['user_id'];
-      $sql2 = "INSERT IGNORE INTO fm_follows(fm_user_id, fm_following_user_id) VALUES ('$user_id', '$followID')";
+      $sql2 = "INSERT IGNORE INTO fm_follows(fm_user_id, following_user_id) VALUES ('$user_id', '$followID')";
       $conn->query($sql2);
 
     }
 else {
 
     $followID = $row2['user_id'];
-    $sql2 = "DELETE FROM fm_follows WHERE fm_user_id = '$user_id' AND fm_following_user_id = '$followID'";
+    $sql2 = "DELETE FROM fm_follows WHERE fm_user_id = '$user_id' AND following_user_id = '$followID'";
     $conn->query($sql2);
     }
 
@@ -57,13 +51,13 @@ $sql = "SELECT * from fm_users;";
 //execute the sql query
 $result = $conn->query($sql);
 
-$sql = "SELECT fm_following_user_id FROM fm_follows WHERE fm_user_id = $user_id";
+$sql = "SELECT following_user_id FROM fm_follows WHERE fm_user_id = $user_id";
 
 $following_result = $conn->query($sql);
 
 while($row = $following_result->fetch_row()){
 
-  $fm_following_user_id[] = $row[0];
+  $following_user_id[] = $row[0];
 }
 
 ?>
@@ -156,7 +150,7 @@ while($row = $following_result->fetch_row()){
 					<div class="col-md-3 col-sm-2  ml-auto mr-auto">
 									<div class="form-check">
 								<label class="form-check-label"><!--echo if checked only if followed -->
-								<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="yes" <?php if (in_array($row['user_id'], $fm_following_user_id)){echo "checked";}?> >
+								<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="yes" <?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?> >
 					     		<span class="form-check-sign"></span>
 										</label>
 									</div>
