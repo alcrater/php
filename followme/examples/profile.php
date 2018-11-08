@@ -168,7 +168,7 @@ $following_user_id[] = $row[0];
 </div>
 <!--Following Section from Users Old-->
 <div class="tab-pane text-center" id="following" role="tabpanel">
-<?php while($row = $result->fetch_assoc()){ }?>
+<?php while($row = $result->fetch_assoc()){ ?>
 <li>
 <div class="row">
 <div class="col-md-2 col-sm-2 ml-auto mr-auto">
@@ -189,6 +189,7 @@ $following_user_id[] = $row[0];
 </div>
 </li>
 <hr />
+<?php } ?>
 </div>
 </div>
 </div>
