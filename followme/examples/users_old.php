@@ -29,6 +29,9 @@ $follow_id = $row2['user_id'];
 $sql2 = "DELETE FROM fm_followers WHERE fm_user_id = '$user_id' AND following_user_id = '$follow_id'";
 $conn->query($sql2);
 }
+
+header('location: profile.php');
+
 }
 }
 
@@ -42,6 +45,8 @@ $follow_result = $conn->query($sql);
 while($row = $follow_result->fetch_row()) {
 $following_user_id[] = $row[0];
 }
+
+header('location: profile.php');
 ?>
 
 <!DOCTYPE html>
