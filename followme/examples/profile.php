@@ -10,6 +10,10 @@ session_start();
 $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 
+//don't forget to set user_id session
+
+$user_id = $_SESSION['user_id'];
+
 $sql = "SELECT following_user_id FROM fm_followers WHERE fm_user_id = '$user_id'";
 
 $follow_result = $conn->query($sql);
