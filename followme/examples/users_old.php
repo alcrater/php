@@ -31,7 +31,6 @@ $conn->query($sql2);
 }
 
 header('location: profile.php');
-
 }
 }
 
@@ -46,7 +45,7 @@ while($row = $follow_result->fetch_row()) {
 $following_user_id[] = $row[0];
 }
 
-header('location: profile.php');
+
 ?>
 
 <!DOCTYPE html>
