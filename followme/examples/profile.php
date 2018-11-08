@@ -4,25 +4,21 @@
 if (!isset($_SESSION)) {
 session_start();
 }
-require('dbconnection.php');
 
-$sql = "SELECT * from fm_users;";
+//this is to bring over the list of the checked users; from users_old page
 
+$sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 
-$user_id = $_SESSION['user_id']; 
+$sql = "SELECT following_user_id FROM fm_followers WHERE fm_user_id = '$user_id'";
 
-$sql = "SELECT following_user_id FROM fm_follows WHERE fm_user_id = $user_id";
+$follow_result = $conn->query($sql);
 
-$following_result = $conn->query($sql);
-
-
-//checked followers from user_old page
-while($row = $following_result->fetch_row()){
-
+while($row = $follow_result->fetch_row()) {
 $following_user_id[] = $row[0];
-
 }
+
+
 
 ?>
 
