@@ -16,6 +16,7 @@ while ($row2 = $result2->fetch_assoc()) {
 $userID = $row2['user_id'];
 
 if ($_POST["$userID"] == "yes") {
+echo $follow_id . "=" . $user_id;
 
 $follow_id = $row2['user_id'];
 $sql2 = "INSERT IGNORE INTO fm_followers(fm_user_id, following_user_id) VALUES ('$user_id','$follow_id')";
