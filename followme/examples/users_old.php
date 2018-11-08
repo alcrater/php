@@ -5,7 +5,7 @@ session_start();
 require('dbconnection.php');
 
 $user_id= $_SESSION['user_id'];
-
+echo $user_id;
 $sql2 = "SELECT * FROM fm_users";
 
 $result2 = $conn->query($sql2);
