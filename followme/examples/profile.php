@@ -168,11 +168,10 @@ $following_user_id[] = $row[0];
 </div>
 <!--Following Section from Users Old-->
 <div class="tab-pane text-center" id="following" role="tabpanel">
-<ul class="list-unstyled follows">
 <?php while($row = $result->fetch_assoc()){ ?>
 <li>
 <div class="row">
-<div class="col-md-6 ml-auto mr-auto">
+<div class="col-md-2 col-sm-2 ml-auto mr-auto">
 <img src="<?php  echo  $row['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
 <div class="col-md-7 col-sm-4  ml-auto mr-auto">
