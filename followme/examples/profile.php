@@ -1,5 +1,3 @@
-
-
 <?php
 
 session_start();
@@ -193,10 +191,8 @@ $following_user_id[] = $row[0];
 						</li>
 						<hr />
 					<?php } ?>
-          </div>
+         </div>
 </div>
-</div>
-<button class="btn btn-warning btn-round"><a href="users_old.php">Follow More</a></button>
 </div>
 </div>
 </div>
