@@ -12,9 +12,52 @@ $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 
 
-$sql18 = "SELECT * FROM fm_users";
 
-$result2 = $conn->query($sql18);
+//create the sql Query
+
+$sql4 = "SELECT * from fm_users;";
+
+//exacute the sql query
+
+$result2 = $conn->query($sql4);
+
+
+
+
+
+//following
+
+$sql2 = "SELECT following_user_id FROM fm_follows WHERE fm_user_id = $userID";
+
+$following_result = $conn->query($sql2);
+
+//indexes of user id's
+
+while($row = $following_result->fetch_row()){
+
+  $following_user_id[] = $row[0];
+
+}
+
+
+
+//following me
+
+$sql3 = "SELECT fm_user_id FROM fm_follows WHERE following_user_id = $userID";
+
+$following_me = $conn->query($sql3);
+
+
+
+while ($row = $following_me->fetch_row()) {
+
+  $following_me_me[] = $row[0];
+
+}
+
+?>
+
+$result2 = $conn->query($sql1);
 
 //following sql
 
