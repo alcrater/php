@@ -109,14 +109,7 @@ header('Location: profile.php');
 <h2 class="text-center">Edit Profile</h2>
 <form class="contact-form" action="" method="post">
 <div class="row">
-<!-- edit upload image for profile, /images/userid.jpg // option to edit img-->
-<div class="col-md-6">
-<label>To change Profile Image, Click Me</label>
-<div class="input-group">
-<img src="<?php  echo  $_SESSION['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-</div>
 
-</div>
 <!-- col-md-6 designates the amount of spaces used in the 12 space grid that is used -->
 <div class="col-md-6">
 <label>First Name:</label>
