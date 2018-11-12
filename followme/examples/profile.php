@@ -3,61 +3,11 @@
 session_start();
 require('dbconnection.php');
 
-
-$user_id = $_SESSION['user_id'];
-
-
 $sql = "SELECT * FROM fm_users";
 
 $result = $conn->query($sql);
 
-
-
-//create the sql Query
-
-$sql4 = "SELECT * from fm_users;";
-
-//exacute the sql query
-
-$result2 = $conn->query($sql4);
-
-
-
-
-
-//following
-
-$sql2 = "SELECT following_user_id FROM fm_follows WHERE fm_user_id = $userID";
-
-$following_result = $conn->query($sql2);
-
-//indexes of user id's
-
-while($row = $following_result->fetch_row()){
-
-  $following_user_id[] = $row[0];
-
-}
-
-
-
-//following me
-
-$sql3 = "SELECT fm_user_id FROM fm_follows WHERE following_user_id = $userID";
-
-$following_me = $conn->query($sql3);
-
-
-
-while ($row = $following_me->fetch_row()) {
-
-  $following_me_me[] = $row[0];
-
-}
-
-?>
-
-$result2 = $conn->query($sql1);
+$user_id = $_SESSION['user_id'];
 
 //following sql
 
@@ -67,17 +17,6 @@ $follow_result = $conn->query($sql22);
 
 while($row = $follow_result->fetch_row()) {
 $following_user_id[] = $row[0];
-}
-
-
-//following me
-
-$sqlme = "SELECT fm_user_id FROM fm_followers WHERE following_user_id = $userID";
-$following_me = $conn->query($sqlme);
-
-while ($row = $following_me->fetch_row()) {
-$following_me[] = $row[0];
-
 }
 
 ?>
@@ -196,25 +135,32 @@ $following_me[] = $row[0];
 <div class="col-md-7 col-sm-4 ml-auto mr-auto">
 <h6>Flume<br/><small>Musical Producer</small></h6>
 </div>
-
-<!--<div class="col-md-3 col-sm-2 ml-auto mr-auto">
+<div class="col-md-3 col-sm-2 ml-auto mr-auto">
 <div class="form-check">
 <label class="form-check-label">
 <input class="form-check-input" type="checkbox" value="" checked>
 <span class="form-check-sign"></span>
 </label>
 </div>
-</div>-->
+</div>
 </div>
 </li>
 <hr />
 <li>
 <div class="row">
-<div class="col-md-2 col-sm-2 ml-auto mr-auto">
+<div class="col-md-2 ml-auto mr-auto ">
 <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
 <div class="col-md-7 col-sm-4">
 <h6>Banks<br /><small>Singer</small></h6>
+</div>
+<div class="col-md-3 col-sm-2">
+<div class="form-check">
+<label class="form-check-label">
+<input class="form-check-input" type="checkbox" value="">
+<span class="form-check-sign"></span>
+</label>
+</div>
 </div>
 </div>
 </li>
@@ -229,15 +175,16 @@ $following_me[] = $row[0];
 <!--Following Section from Users Old-->
 <div class="tab-pane text-center" id="following" role="tabpanel">
 <?php while($row = $result->fetch_assoc()){ 
-  if (in_array($row['user_id'], $following_user_id))?>
+  if (in_array($row['user_id'], $following_user_id)){echo "checked";}?>
 <div class="row">
 <div class="col-md-2 col-sm-2 ml-auto mr-auto">
 <img src="<?php  echo  $row['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
-<div class="col-md-7 col-sm-4 ml-auto mr-auto">
+<div class="col-md-7 col-sm-4  ml-auto mr-auto">
 <h6><?php echo $row['first_name'] ." " . $row['last_name'] ; ?>
 <br/><small><?php 	echo $row['title'] ; ?></small></h6>
 </div>
+
 </div>
 <hr />
 <?php } ?>
