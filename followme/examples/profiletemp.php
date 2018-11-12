@@ -133,7 +133,8 @@ $fm_user_id[] = $row[0];
 <!-- Tab panes -->
 <div class="tab-content following">
 <div class="tab-pane active" id="follows" role="tabpanel">
-<?php while($row2 = $result->fetch_assoc()){ ?>
+<?php while($row2 = $result->fetch_assoc()){ 
+ if (in_array($row2['user_id'], $fm_user_id)) }?>
 <div class="row">
 <div class="col-md-2 col-sm-2 ml-auto mr-auto">
 <img src="<?php  echo  $row2['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
@@ -142,16 +143,9 @@ $fm_user_id[] = $row[0];
 <h6><?php echo $row2['first_name'] ." " . $row2['last_name'] ; ?>
 <br/><small><?php 	echo $row2['title'] ; ?></small></h6>
 </div>
-<div class="col-md-3 col-sm-2  ml-auto mr-auto">
-<div class="form-check">
-<label class="form-check-label">
-<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="yes" <?php if (in_array($row['user_id'], $fm_user_id)){echo "checked";}?> >
-<span class="form-check-sign"></span>
-</label>
-</div>
-</div>
 </div>
 <hr />
+<?php } ?>
 <?php } ?>
 </div>
 </div>
