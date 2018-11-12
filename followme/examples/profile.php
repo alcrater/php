@@ -21,7 +21,7 @@ $following_user_id[] = $row[0];
 
 //following me
 
-$sql3 = "SELECT fm_user_id FROM fm_follows WHERE following_user_id = $userID";
+$sql3 = "SELECT fm_user_id FROM fm_follows WHERE following_user_id = $user_id";
 
 $following_me = $conn->query($sql3);
 
