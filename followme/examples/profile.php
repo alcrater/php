@@ -124,21 +124,35 @@ $following_user_id[] = $row[0];
 <!-- Tab panes -->
 <div class="tab-content following">
 <div class="tab-pane active" id="follows" role="tabpanel">
-
+<div class="row">
+<div class="col-md-6 ml-auto mr-auto">
+<ul class="list-unstyled follows">
+<li>
+<div class="row">
+<div class="col-md-2 col-sm-2 ml-auto mr-auto">
+<img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+</div>
+<div class="col-md-7 col-sm-4 ml-auto mr-auto">
+<h6>Flume<br/><small>Musical Producer</small></h6>
+</div>
+<div class="col-md-3 col-sm-2 ml-auto mr-auto">
+<div class="form-check">
+<label class="form-check-label">
+<input class="form-check-input" type="checkbox" value="" checked>
+<span class="form-check-sign"></span>
+</label>
+</div>
+</div>
+</div>
+</li>
+<hr />
+<li>
 <div class="row">
 <div class="col-md-2 col-sm-2 ml-auto mr-auto">
 <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
 <div class="col-md-7 col-sm-4">
 <h6>Banks<br /><small>Singer</small></h6>
-</div>
-<div class="col-md-3 col-sm-2">
-<div class="form-check">
-<label class="form-check-label">
-<input class="form-check-input" type="checkbox" value="">
-<span class="form-check-sign"></span>
-</label>
-</div>
 </div>
 </div>
 </li>
@@ -152,6 +166,7 @@ $following_user_id[] = $row[0];
 
 <!--Following Section from Users Old-->
 <div class="tab-pane text-center" id="following" role="tabpanel">
+
 <?php while($row = $result->fetch_assoc()){ 
   if (in_array($row['user_id'], $following_user_id))?>
 <div class="row">
