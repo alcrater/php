@@ -25,7 +25,7 @@ $sql = "SELECT fm_user_id FROM fm_followers WHERE following_user_id = '$user_id'
 $follow_me_result = $conn->query($sql);
 
 while($row = $follow_me_result->fetch_row()) {
-$fm_user_id[] = $row[0];
+$following_user_id[] = $row[0];
 }
 
 ?>
@@ -134,7 +134,7 @@ $fm_user_id[] = $row[0];
 <div class="tab-content following">
 <div class="tab-pane active" id="follows" role="tabpanel">
 <?php while($row2 = $result->fetch_assoc()){ 
- if (in_array($row2['user_id'], $fm_user_id)) }?>
+ if (in_array($row2['user_id'], $following_user_id)) }?>
 <div class="row">
 <div class="col-md-2 col-sm-2 ml-auto mr-auto">
 <img src="<?php  echo  $row2['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
