@@ -3,11 +3,17 @@
 session_start();
 require('dbconnection.php');
 
+$user_id = $_SESSION['user_id'];
+
 $sql = "SELECT * FROM fm_users";
 
 $result = $conn->query($sql);
 
-$user_id = $_SESSION['user_id'];
+
+$sql12 = "SELECT * FROM fm_followers";
+
+$result = $conn->query($sql12);
+
 
 //following sql
 
