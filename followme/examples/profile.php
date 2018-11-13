@@ -198,6 +198,8 @@ if (in_array($row2['user_id'], $following_user_id)) }?>
 <h6><?php echo $row2['first_name'] ." " . $row2['last_name'] ; ?>
 <br/><small><?php 	echo $row2['title'] ; ?></small></h6>
 </div>
+</div>
+</div>
 
 <footer class="footer section-dark">
 <div class="container">
