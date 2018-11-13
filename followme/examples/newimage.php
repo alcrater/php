@@ -118,7 +118,7 @@ $sql = "UPDATE fm_users SET image_url = $target_file where fm_user_id = '$user_i
 
     header('Location: profile.php');
 
-    echo "test";
+    echo "updated";
 
 }
 
