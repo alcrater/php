@@ -16,7 +16,7 @@ $user_id = $_SESSION['user_id'];
 ///following information
 $sql4 = "SELECT following_user_id FROM fm_followers WHERE fm_user_id = '$user_id'";
 
-$follow_result = $conn->query($sql4);
+$follow_result4 = $conn->query($sql4);
 
 while($row1 = $follow_result->fetch_row()) {
 $following_user_id[] = $row1[0];
