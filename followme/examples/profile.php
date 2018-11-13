@@ -141,25 +141,26 @@ $following_user_id[] = $row1[0];
 <!-- Tab panes followers-->
 <div class="tab-content following">
     <div class="tab-pane active" id="follows" role="tabpanel">
-          <?php while($row = $result->fetch_assoc()){
-          if (in_array($row['user_id'], $following_me)) {?>
+          <?php while($row1 = $result->fetch_assoc()){
+          if (in_array($row1['user_id'], $following_me)) {?>
        <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
             <div class="row">
               <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                <img src="<?php  echo  $row['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                <img src="<?php  echo  $row1['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                </div>
                       <div class="col-md-7 col-sm-4 ml-auto mr-auto">
-                        <h6><?php echo $row['first_name'] . $row['last_name']; ?><br />
-                        <small><?php 	echo $row['title']; ?></small></h6>
+                        <h6><?php echo $row1['first_name'] . $row1['last_name']; ?><br />
+                        <small><?php 	echo $row1['title']; ?></small></h6>
                       </div><!--end div class-->
             </div><!--end div class-->      
           </div><!--end div row-->
         </div><!--end div row-->
         <hr />
         <?php } ?>
-       <?php } ?>
+     <?php } ?>
     </div> <!--end main div-->
+
 </div> <!--end main div-->
 
 
@@ -167,42 +168,23 @@ $following_user_id[] = $row1[0];
 
 
 <!--Following Section from Users Old-->
+<div class="tab-pane text-center" id="following" role="tabpanel">
+      <?php while($row2 = $result2->fetch_assoc()){
+      if (in_array($row2['user_id'], $following_user_id)) {?>
 <div class="row">
-<div class="col-md-6 ml-auto mr-auto">
-<ul class="list-unstyled follows">
-<?php while($row2 = $result->fetch_assoc()){ ?>
-<li>
-<div class="row">
-<div class="col-md-2 col-sm-2 ml-auto mr-auto">
-<!-- image--> <img src="<?php echo $row2['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-</div>
-<div class="col-md-7 col-sm-4 ml-auto mr-auto">
-<!--name--> <h6><?php echo $row2['first_name'] ." " . $row2['last_name'] ; ?>
-<!-- title--> <br/><small><?php echo $row['title'] ; ?></small></h6>
-</div>
-<div class="col-md-3 col-sm-2 ml-auto mr-auto">
-<div class="form-check">
-<label class="form-check-label"><!--echo if checked only if followed -->
-<input class="form-check-input" type="checkbox" name="<?php echo $row2['user_id'];?>" value="yes" <?php if (in_array($row2['user_id'], $following_user_id)){echo "checked";}?> >
-<span class="form-check-sign"></span>
-</label>
-</div>
-</div>
-</div>
-</li>
-<hr />
+          <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+          <img src="<?php  echo  $row2['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+          </div><!--//end div class-->
+                    <div class="col-md-7 col-sm-4  ml-auto mr-auto">
+                    <h6><?php echo $row2['first_name'] ." " . $row2['last_name'] ; ?>
+                    <br/><small><?php 	echo $row2['title'] ; ?></small></h6>
+                    </div><!--//end div class-->
+      </div><!--//end div row-->
 <?php } ?>
-</ul>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-4 ml-auto mr-auto text-center">
-<button class="btn btn-danger btn-lg btn-fill">Submit</button>
-</div>
-</div>
-</form>
-</div>
+<?php } ?>
+</div><!--//end div class-->
+</div><!--//end div class-->
+</div><!--//end div class-->
 
 <footer class="footer section-dark">
 <div class="container">
