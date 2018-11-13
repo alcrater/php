@@ -5,7 +5,7 @@ require('dbconnection.php');
 
 $sql = "SELECT * FROM fm_users";
 
-$result = $conn->query($sql);
+$result1 = $conn->query($sql);
 
 $sql2 = "SELECT * FROM fm_users";
 
@@ -16,7 +16,7 @@ $user_id = $_SESSION['user_id'];
 ///following information
 $sql4 = "SELECT following_user_id FROM fm_followers WHERE fm_user_id = '$user_id'";
 
-$follow_result4 = $conn->query($sql4);
+$follow_result = $conn->query($sql4);
 
 while($row1 = $follow_result->fetch_row()) {
 $following_user_id[] = $row1[0];
@@ -138,7 +138,7 @@ $following_me[] = $row1[0];
 
 <!-- Tab panes -->
 <div class="tab-pane text-center" id="following" role="tabpanel">
-<?php while($row = $result->fetch_assoc()){
+<?php while($row = $result1->fetch_assoc()){
 if (in_array($row['user_id'], $following_me)) }?>
 <div class="row">
 <div class="col-md-2 col-sm-2 ml-auto mr-auto">
