@@ -144,29 +144,9 @@ if (in_array($row['user_id'], $following_me)) {?>
 <h6><?php echo $row['first_name'] . $row['last_name']; ?><br />
 <small><?php 	echo $row['title']; ?></small></h6>
 </div>
-
 </div>
 </li>
 <hr />
-<li>
-<div class="row">
-<div class="col-md-2 ml-auto mr-auto ">
-<img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-</div>
-<div class="col-md-7 col-sm-4">
-<h6>Banks<br /><small>Singer</small></h6>
-</div>
-<div class="col-md-3 col-sm-2">
-<div class="form-check">
-<label class="form-check-label">
-<input class="form-check-input" type="checkbox" value="">
-<span class="form-check-sign"></span>
-</label>
-</div>
-</div>
-</div>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -176,23 +156,17 @@ if (in_array($row['user_id'], $following_me)) {?>
 
 <!--Following Section from Users Old-->
 <div class="tab-pane text-center" id="following" role="tabpanel">
-<?php while($row = $result->fetch_assoc()){ ?>
+<?php while($row2 = $result2->fetch_assoc()){
+if (in_array($row2['user_id'], $following_user_id)) {?>
 <div class="row">
 <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-<img src="<?php  echo  $row['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+<img src="<?php  echo  $row2['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
 <div class="col-md-7 col-sm-4  ml-auto mr-auto">
-<h6><?php echo $row['first_name'] ." " . $row['last_name'] ; ?>
+<h6><?php echo $row2['first_name'] ." " . $row2['last_name'] ; ?>
 <br/><small><?php 	echo $row['title'] ; ?></small></h6>
 </div>
-<div class="col-md-3 col-sm-2  ml-auto mr-auto">
-<div class="form-check">
-<label class="form-check-label">
-<input class="form-check-input" type="checkbox" name="<?php echo $row['user_id'];?>" value="yes" <?php if (in_array($row['user_id'], $following_user_id)){echo "checked";}?> >
-<span class="form-check-sign"></span>
-</label>
-</div>
-</div>
+
 </div>
 <hr />
 <?php } ?>
