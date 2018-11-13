@@ -108,8 +108,17 @@ header('Location: profile.php');
 <!-- ml-auto and mr-auto automatically move the div ogjects -->
 <h2 class="text-center">Edit Profile</h2>
 <form class="contact-form" action="" method="post">
-<div class="row">
 
+<div class="row">
+ <div class="col-md-6">
+<a href="newimage.php">Want a different image click me.</a>
+<div class="input-group">
+<img src="<?php  echo  $_SESSION['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+</div>
+</div>
+</div>
+
+<div class="row">
 <!-- col-md-6 designates the amount of spaces used in the 12 space grid that is used -->
 <div class="col-md-6">
 <label>First Name:</label>
