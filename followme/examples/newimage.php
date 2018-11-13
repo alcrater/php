@@ -22,7 +22,16 @@ if (isset($_FILES['upload']) ){
     mkdir("uploads/");
 
   }
+  
+  $sql = "UPDATE fm_users SET image_url = $target_file where fm_user_id = '$user_id' ";
 
+  $conn->query($sql);
+
+  header('Location: profile.php');
+
+  echo "updated";
+
+}
   //could use any id really, email or user_id
 
 
@@ -109,16 +118,6 @@ if ($uploadVerify) {
     move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file);
 
 }
-
-}
-
-$sql = "UPDATE fm_users SET image_url = $target_file where fm_user_id = '$user_id' ";
-
-    $conn->query($sql);
-
-    header('Location: profile.php');
-
-    echo "updated";
 
 }
 
