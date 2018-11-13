@@ -22,6 +22,7 @@ while($row1 = $follow_result->fetch_row()) {
 $following_user_id[] = $row1[0];
 }
 
+//follower information
 $sql3 = "SELECT fm_user_id FROM fm_followers WHERE following_user_id = '$user_id'";
 
 $follow_myprofile = $conn->query($sql3);
@@ -163,24 +164,6 @@ if (in_array($row1['user_id'], $following_me)) {?>
 </div>
 </li>
 <hr />
-<li>
-<div class="row">
-<div class="col-md-2 ml-auto mr-auto ">
-<img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-</div>
-<div class="col-md-7 col-sm-4">
-<h6>Banks<br /><small>Singer</small></h6>
-</div>
-<div class="col-md-3 col-sm-2">
-<div class="form-check">
-<label class="form-check-label">
-<input class="form-check-input" type="checkbox" value="">
-<span class="form-check-sign"></span>
-</label>
-</div>
-</div>
-</div>
-</li>
 </ul>
 </div>
 </div>
