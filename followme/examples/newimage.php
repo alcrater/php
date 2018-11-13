@@ -194,11 +194,7 @@ if ($uploadVerify) {
 
 	            <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-
-                   <a href="logout.php" class="nav-link">Logout</a>
-
-               </li>
+               
 
                 <li class="nav-item">
 
@@ -261,8 +257,8 @@ if ($uploadVerify) {
                 <div class="col-md-8 ml-auto mr-auto">
 
                     <h2 class="text-center">New Image Upload</h2> 
-                    <form class="contact-form" action="" method="POST" class="text-center"> 
-                      <div class="row">
+                    <form class="contact-form" action="" method="POST" > 
+                      <div class="row" >
                        <input type="file" name="upload">
                         </div>
                        <div class="row">
