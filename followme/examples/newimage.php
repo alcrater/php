@@ -260,38 +260,15 @@ if ($uploadVerify) {
 
                 <div class="col-md-8 ml-auto mr-auto">
 
-                    <h2 class="text-center">Image Upload</h2> <!-- turned to edit profil -->
-
-                    <form class="contact-form" action="" method="POST"> <!-- added in action and method-->
-
-                        <div class="row"><!--starts row-->
-
-
-
-                        <input type="file" name="upload">
-
-                        <br />
-
-                        <br />
-
-
-
-                        </div><!-- ends row-->
-
-
-
-                        <div class="row">
-
-                          <button class="btn btn-outline-default btn-round">Submit</button>
-
+                    <h2 class="text-center">New Image Upload</h2> 
+                    <form class="contact-form" action="" method="POST" class="text-center"> 
+                      <div class="row">
+                       <input type="file" name="upload">
                         </div>
-
-
-
+                       <div class="row">
+                          <button class="btn btn-outline-default btn-round">Submit</button>
+                        </div>
                     </form>
-
-
-
                 </div>
 
             </div>

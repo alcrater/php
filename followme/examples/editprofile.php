@@ -150,7 +150,7 @@ header('Location: profile.php');
 <textarea class="form-control" name="description" rows="4" placeholder="Tell everyone a little about you..."><?php echo $_SESSION['description'] ?></textarea>
 <div class="row">
 <div class="col-md-4 ml-auto mr-auto text-center">
-<button class="btn btn-danger btn-lg btn-fill" name="update-btn">Update</button>
+<button class="btn btn-outline-default btn-round" name="update-btn">Update</button>
 </div>
 </div>
 </form>
