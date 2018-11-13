@@ -282,7 +282,7 @@ if ($uploadVerify) {
 
                         <div class="row">
 
-                          <button class="btn btn-lg btn-fill">Submit</button>
+                          <button class="btn btn-outline-default btn-round">Submit</button>
 
                         </div>
 

@@ -91,6 +91,7 @@ $following_user_id[] = $row1[0];
      <a href="users_old.php" class="nav-link">Users</a>
      </li>
      <li class="nav-item">
+     
     <a href="#" class="nav-link">
       <?php echo $_SESSION['email']; ?>
      </a>
