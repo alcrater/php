@@ -145,27 +145,22 @@ $following_user_id[] = $row1[0];
 if (in_array($row1['user_id'], $following_me)) {?>
 <div class="row">
 <div class="col-md-6 ml-auto mr-auto">
-<ul class="list-unstyled follows">
-<li>
-<div class="row">
-<div class="col-md-2 col-sm-2 ml-auto mr-auto">
-<img src="<?php  echo  $row1['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-</div>
-<div class="col-md-7 col-sm-4 ml-auto mr-auto">
-<h6><?php echo $row1['first_name'] . $row1['last_name']; ?><br />
-<small><?php 	echo $row1['title']; ?></small></h6>
-</div>
-
-</div>
-
-</li>
+  <div class="row">
+      <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+      <img src="<?php  echo  $row1['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+      </div>
+            <div class="col-md-7 col-sm-4 ml-auto mr-auto">
+            <h6><?php echo $row1['first_name'] . $row1['last_name']; ?><br />
+            <small><?php 	echo $row1['title']; ?></small></h6>
+            </div><!--end div class-->
+    </div><!--end div class-->      
+</div><!--end div row-->
+</div><!--end div row-->
 <?php } ?>
 <?php } ?>
 <hr />
-
-</ul>
-</div>
-
+</div> <!--end main div-->
+</div> <!--end main div-->
 
 
 
