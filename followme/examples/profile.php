@@ -127,7 +127,7 @@ $following_user_id[] = $row1[0];
          <div class="col-md-6 ml-auto mr-auto text-center">
            <p><?php echo $_SESSION['description']; ?> </p> 
                <br />
-             <btn class="btn btn-outline-default btn-round" a href="editprofile.php"><i class="fa fa-cog"></i> Edit</btn>
+             <btn class="btn btn-outline-default btn-round" a href="editprofile.php"><i class="fa fa-cog"></i> Edit Profile</btn>
            </div>
           </div>
           <br/>
@@ -189,6 +189,10 @@ $following_user_id[] = $row1[0];
          </div><!-- end following-->
         </div><!-- end of follwers/following both section-->
    </div>
+   <div class="row">
+         <div class="col-md-6 ml-auto mr-auto text-center">
+                        <btn class="btn btn-outline-default btn-round" a href="users_old.php"><i class="fa fa-cog"></i> Change Following People</btn>
+                    </div>
 </div>
 </div>
 
