@@ -26,8 +26,8 @@ $sql3 = "SELECT fm_user_id FROM fm_followers WHERE following_user_id = '$user_id
 
 $follow_myprofile = $conn->query($sql3);
 
-while($row = $follow_myprofile->fetch_row()) {
-$following_me[] = $row[0];
+while($row1 = $follow_myprofile->fetch_row()) {
+$following_me[] = $row1[0];
 }
 
 
