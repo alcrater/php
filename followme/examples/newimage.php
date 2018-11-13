@@ -28,15 +28,15 @@ if (isset($_FILES['upload']) ){
 
   //creates file for individual user, 0777 permissions, true = recursive to create file path
 
-  if (!file_exists("uploads/" . $_SESSION['user_id'])) {
+  if (!file_exists("uploads/" . $_SESSION['email'])) {
 
-    mkdir("uploads/" . $_SESSION['user_id'], 0777,true);
+    mkdir("uploads/" . $_SESSION['email'], 0777,true);
 
   }
 
   // makes upload files for user by email
 
-  $target_dir = "uploads/" . $_SESSION['user_id'] . "/";
+  $target_dir = "uploads/" . $_SESSION['email'] . "/";
 
   $target_file = $target_dir . basename($_FILES['upload']['name']);
 
@@ -108,23 +108,12 @@ if ($uploadVerify) {
 
     move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file);
 
-
-
-$sql = "UPDATE fm_users SET image_url = $target_file where fm_user_id = '$user_id' ";
-
-    $conn->query($sql);
-
-    header('Location: profile.php');
-
-    echo "Succesful Update";
-
 }
 
 }
 
 }
 
-}
  ?>
 
  <!doctype html>
