@@ -3,7 +3,7 @@
 session_start();
 require('dbconnection.php');
 
-$sql = "SELECT * FROM fm_users";
+$sql = "SELECT * FROM fm_followers";
 
 $result1 = $conn->query($sql);
 
