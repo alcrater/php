@@ -157,11 +157,11 @@ $following_user_id[] = $row1[0];
           </div><!--end div row-->
         </div><!--end div row-->
         <hr />
+        <?php } ?>
+       <?php } ?>
     </div> <!--end main div-->
-    <?php } ?>
-          <?php } ?>
 </div> <!--end main div-->
-
+</div> <!--end main div-->
 
 
 
@@ -179,9 +179,10 @@ $following_user_id[] = $row1[0];
                     <br/><small><?php 	echo $row2['title'] ; ?></small></h6>
                     </div><!--//end div class-->
       </div><!--//end div row-->
-<?php } ?>
-<?php } ?>
-</div><!--//end div class-->
+    <?php } ?>
+    <?php } ?>
+    </div><!--//end div class-->
+</div><!--//end main class-->
 
 <footer class="footer section-dark">
 <div class="container">
