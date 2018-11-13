@@ -9,9 +9,9 @@ $sql = "SELECT * FROM fm_users";
 
 $result = $conn->query($sql);
 
-$sql2 = "SELECT * FROM fm_users";
+$sql1 = "SELECT * FROM fm_users";
 
-$result2 = $conn->query($sql2);
+$result1 = $conn->query($sql1);
 
 
 
@@ -188,7 +188,7 @@ $following_user_id[] = $row1[0];
        <?php } ?>
        <div class="row">
          <div class="col-md-6 ml-auto mr-auto text-center">
-                        <btn class="btn btn-outline-default btn-round" ><i class="fa fa-cog"></i><a href="users_old.php">Change Following People</a>/btn>
+                        <btn class="btn btn-outline-default btn-round" ><i class="fa fa-cog"></i><a href="users_old.php">Change Following People</a></btn>
                     </div>
          </div><!-- end following-->
         </div><!-- end of follwers/following both section-->
