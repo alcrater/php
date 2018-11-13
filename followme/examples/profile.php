@@ -138,7 +138,7 @@ $following_me[] = $row1[0];
 <!-- Tab panes -->
 <div class="tab-content following">
 <div class="tab-pane active" id="follows" role="tabpanel">
-<?php while($row1 = $result->fetch_assoc()){
+<?php while($row1 = $result1->fetch_assoc()){
 if (in_array($row1['user_id'], $following_me)) {?>
 <div class="row">
 <div class="col-md-6 ml-auto mr-auto">
