@@ -111,7 +111,7 @@ header('Location: profile.php');
 
 <div class="row">
  <div class="col-md-6">
-<a href="newimage.php">Want a different image click me.</a>
+ <btn class="btn btn-outline-default btn-round" ><i class="fa fa-cog"></i><a href="newimage.php">Update Profile Image</a></btn>
 <div class="input-group">
 <img src="<?php  echo  $_SESSION['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
