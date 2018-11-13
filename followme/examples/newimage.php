@@ -7,89 +7,123 @@ if (!isset($_SESSION)) {
 }
 
 
-if (isset($_FILES['upload'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    $img_upload = "../assets/img/faces/$user_id";
-    if (!file_exists($img_upload)) {
-    mkdir($img_upload);
-    }
+//code for uploading file, will work after post data is sent
 
+if (isset($_FILES['upload']) ){ 
 
-    $target_dir = $img_upload . "/";
+  //check to if uploads folder exists
 
-    $target_file = $target_dir.basename($_FILES['upload']['name']);
+  if (!file_exists("uploads")){
 
-    $uploadVerification = true;
+    //if uploads folder(directory) dose not exist create it
 
-
-    if (file_exists($target_file)) {
-
-      $uploadVerification = false;
-
-      $ret = "That file already exists; choose another file to upload";
-
-    }
-
-
-
-    //Check file for type
-
-    $file_type = $_FILES['upload']['type'];
-
-
-
-    switch ($file_type) {
-
-      case 'image/jpeg':
-
-        $uploadVerification = true;
-
-        break;
-
-      case 'image/png':
-
-        $uploadVerification = true;
-
-        break;
-
-    
-      default:
-
-        $uploadVerification = false;
-
-        $ret = "Invalid file: choose a jpg or png file";
-
-    }
-
-
-
-    if ($_FILES['upload']['size'] > 2000000) {
-
-      $uploadVerification = false;
-
-      $ret = "Sorry. File is too big";
-
-    }
-
-
-
-    if ($uploadVerification) {
-
-      move_uploaded_image($_FILES['upload']['tmp_name'], $target_file);
-
-    }
+    mkdir("uploads/");
 
   }
 
+  //could use any id really, email or user_id
 
-$sql = "UPDATE fm_users SET fm_user_id = '$user_id', first_name = '$first_name', last_name = '$last_name', title = '$title', description = '$description', image_url = $target_file where fm_user_id = '$user_id' ";
-$conn->query($sql);
-header('Location: profile.php');
+
+  //creates file for individual user, 0777 permissions, true = recursive to create file path
+
+  if (!file_exists("uploads/" . $_SESSION['user_id'])) {
+
+    mkdir("uploads/" . $_SESSION['user_id'], 0777,true);
+
+  }
+
+  // makes upload files for user by email
+
+  $target_dir = "uploads/" . $_SESSION['user_id'] . "/";
+
+  $target_file = $target_dir . basename($_FILES['upload']['name']);
+
+$uploadVerify = true;
+
+
+
+
+
+
+//global variables
+
+if (file_exists($target_file)) {
+
+  $uploadVerify = false;
+
+  $ret = "Sorry file already exists";
+
+}
+
+
+//file type
+
+$file_type = $_FILES['upload']['type'];
+
+
+
+switch ($file_type) {
+
+  case 'image/jpeg':
+
+    $uploadVerify = true;
+
+    break;
+
+
+
+  default:
+
+    $uploadVerify = false;
+
+    $ret = "sorry only jpeg files allowed";
+
+    break;
+
 }
 
 
 
-?>
+
+
+//php has file upload limit of 2mb by default
+
+if ($_FILES['upload']['size'] > 1000000 ) {
+
+  $uploadVerify = false;
+
+  $ret = "Sorry file too big";
+
+}
+
+
+
+//if set value has value can be used as true w/o conditions
+
+if ($uploadVerify) {
+
+  //moves files
+
+    move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file);
+
+}
+
+}
+
+}
+
+$sql = "UPDATE fm_users SET image_url = $target_file where fm_user_id = '$user_id' ";
+
+    $conn->query($sql);
+
+    header('Location: profile.php');
+
+    echo "Succesful Update";
+
+}
+ ?>
 
  <!doctype html>
 
