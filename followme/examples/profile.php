@@ -3,16 +3,27 @@
 session_start();
 require('dbconnection.php');
 
+$user_id = $_SESSION['user_id'];
+
 $sql = "SELECT * FROM fm_users";
 
 $result = $conn->query($sql);
-
 
 $sql2 = "SELECT * FROM fm_users";
 
 $result2 = $conn->query($sql2);
 
-$user_id = $_SESSION['user_id'];
+
+
+//followers
+$sql3 = "SELECT fm_user_id FROM fm_followers WHERE following_user_id = '$user_id'";
+
+$follow_myprofile = $conn->query($sql3);
+
+while($row = $follow_myprofile->fetch_row()) {
+$following_me[] = $row[0];
+}
+
 
 ///following information
 $sql4 = "SELECT following_user_id FROM fm_followers WHERE fm_user_id = '$user_id'";
@@ -23,16 +34,7 @@ while($row1 = $follow_result->fetch_row()) {
 $following_user_id[] = $row1[0];
 }
 
-$sql3 = "SELECT fm_user_id FROM fm_followers WHERE following_user_id = '$user_id'";
 
-$follow_myprofile = $conn->query($sql3);
-
-while($row = $follow_myprofile->fetch_row()) {
-$following_me[] = $row[0];
-}
-
-
-///following me information
 
 ?>
 
@@ -136,23 +138,25 @@ $following_me[] = $row[0];
 </div>
 </div>
 
-<!-- Tab panes -->
+<!-- Tab panes followers-->
 <div class="tab-content following">
-<div class="tab-pane active" id="follows" role="tabpanel">
-<?php while($row = $result->fetch_assoc()){
-if (in_array($row['user_id'], $following_me)) {?>
+  <div class="tab-pane active" id="follows" role="tabpanel">
+        <?php while($row1 = $result->fetch_assoc()){
+        if (in_array($row1['user_id'], $following_me)) {?>
+        <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+        <ul class="list-unstyled follows">
+        <li>
 <div class="row">
-<div class="col-md-6 ml-auto mr-auto">
-<ul class="list-unstyled follows">
-<li>
-<div class="row">
-<div class="col-md-2 col-sm-2 ml-auto mr-auto">
-<img src="<?php  echo  $row['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-</div>
-<div class="col-md-7 col-sm-4 ml-auto mr-auto">
-<h6><?php echo $row['first_name'] . $row['last_name']; ?><br />
-<small><?php 	echo $row['title']; ?></small></h6>
-</div>
+    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+    <img src="<?php  echo  $row1['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+    </div>
+            <div class="col-md-7 col-sm-4 ml-auto mr-auto">
+            <h6><?php echo $row1['first_name'] . $row1['last_name']; ?><br />
+            <small><?php 	echo $row1['title']; ?></small></h6>
+            </div>
+            <?php } ?>
+            <?php } ?>
 <div class="col-md-3 col-sm-2 ml-auto mr-auto">
 <div class="form-check">
 <label class="form-check-label">
@@ -165,7 +169,7 @@ if (in_array($row['user_id'], $following_me)) {?>
 </li>
 <hr />
 <li>
-<div class="row">
+<!--<div class="row">
 <div class="col-md-2 ml-auto mr-auto ">
 <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
@@ -180,7 +184,7 @@ if (in_array($row['user_id'], $following_me)) {?>
 </label>
 </div>
 </div>
-</div>
+</div>-->
 </li>
 </ul>
 </div>
@@ -194,7 +198,7 @@ if (in_array($row['user_id'], $following_me)) {?>
 <!--Following Section from Users Old-->
 <div class="tab-pane text-center" id="following" role="tabpanel">
 <?php while($row2 = $result2->fetch_assoc()){
-if (in_array($row2['user_id'], $following_user_id)) }?>
+if (in_array($row2['user_id'], $following_user_id)) {?>
 <div class="row">
 <div class="col-md-2 col-sm-2 ml-auto mr-auto">
 <img src="<?php  echo  $row2['image_url'] ; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
@@ -202,6 +206,8 @@ if (in_array($row2['user_id'], $following_user_id)) }?>
 <div class="col-md-7 col-sm-4  ml-auto mr-auto">
 <h6><?php echo $row2['first_name'] ." " . $row2['last_name'] ; ?>
 <br/><small><?php 	echo $row2['title'] ; ?></small></h6>
+<?php } ?>
+<?php } ?>
 </div>
 </div>
 </div>
