@@ -247,8 +247,12 @@ echo "test";
 </div>
 </div>
 <div class="row">
-<label>Profile Image Update:</label>
+<label>Profile Image Update</label>
+</div>
+<div class="row">
+<div class="input-group">
 <input type="file" name="upload">
+</div>
 </div>
 <div class="row">
 <!-- col-md-6 designates the amount of spaces used in the 12 space grid that is used -->
