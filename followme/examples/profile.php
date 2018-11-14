@@ -162,7 +162,7 @@ $following_user_id[] = $row1[0];
      if (in_array($row['user_id'], $follows_me)) {?>
     <div class="row">
     <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-  	<img src="<?php  echo  $row['img_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+  	<img src="<?php  echo  $row['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
     <h6><?php echo $row['first_name'] ." " . $row['last_name'] ; ?>
     <br/><small><?php 	echo $row['title']; ?></small></h6>
     </div>
