@@ -278,6 +278,8 @@ echo "test";
 </div>
 <label>Description</label>
 <textarea class="form-control" name="description" rows="4" placeholder="Tell everyone a little about you..."><?php echo $_SESSION['description'] ?></textarea>
+<div class="row">
+<label>Profile Image Update:</label>
 <input type="file" name="upload">
 <div class="row">
 <div class="col-md-4 ml-auto mr-auto text-center">
