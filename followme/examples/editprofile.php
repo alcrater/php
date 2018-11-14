@@ -241,13 +241,15 @@ echo "test";
 <!-- ml-auto and mr-auto automatically move the div ogjects -->
 <h2 class="text-center">Edit Profile</h2>
 <form class="contact-form" action="" method="post" enctype="multipart/form-data">
-
 <div class="row">
  <div class="input-group">
 <img src="<?php  echo  $_SESSION['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
 </div>
-
+<div class="row">
+<label>Profile Image Update:</label>
+<input type="file" name="upload">
+</div>
 <div class="row">
 <!-- col-md-6 designates the amount of spaces used in the 12 space grid that is used -->
 <div class="col-md-6">
@@ -278,9 +280,7 @@ echo "test";
 </div>
 <label>Description</label>
 <textarea class="form-control" name="description" rows="4" placeholder="Tell everyone a little about you..."><?php echo $_SESSION['description'] ?></textarea>
-<div class="row">
-<label>Profile Image Update:</label>
-<input type="file" name="upload">
+
 <div class="row">
 <div class="col-md-4 ml-auto mr-auto text-center">
 <button class="btn btn-outline-default btn-round" name="update-btn">Update</button>
