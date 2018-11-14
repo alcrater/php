@@ -1,35 +1,168 @@
 
 
-<?php
+<?php 
+
 if (!isset($_SESSION)) {
+
 session_start();
+
 }
-require('dbconnection.php');
 
-if (isset($_SESSION['email']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-if (isset($_POST['update-btn']) && $_POST['first_name'] != null && $_POST['last_name'] != null && $_POST['title'] != null && $_POST['description'] != null) {
 
-$email = $_SESSION['email'];
-$firstname = $_POST['first_name'];
-$lastname = $_POST['last_name'];
+
+if (isset($_POST['submit'])) {
+
+require('../../example/dbconnection.php');
+
+
+
+$username = $_POST['username'];
+
+$username = filter_var($username, FILTER_SANITIZE_STRING);
+
+$username = trim($username);
+
+//$username = stripcslashes($username);
+
+$username = str_replace("/", "", $username);
+
+$username = str_replace("\\", "", $username);
+
+$username = preg_replace("/\s+/", "", $username);
+
+
+
+$_SESSION['username'] = $username;
+
+$_SESSION['first_name'] = $_POST['first_name'];
+
+$_SESSION['last_name'] = $_POST['last_name'];
+
+$_SESSION['title'] = $_POST['title'];
+
+$_SESSION['description'] = $_POST['description'];
+
+
+
+$first_name = $_POST['first_name'];
+
+$last_name = $_POST['last_name'];
+
 $title = $_POST['title'];
+
 $description = $_POST['description'];
 
-$sql = "UPDATE fm_users SET first_name = '$firstname', last_name = '$lastname', title = '$title', description = '$description' WHERE email = '$email'";
+$user_id = $_SESSION['user_id'];
+
+//pulled from the example we did earlier in the class from reference pages/uploads file
+
+if (isset($_FILES['upload'])) {
+
+    $img_path = "../assets/img/faces/$user_id/";
+
+    //checks to see if uploads directory exists
+
+    if (!file_exists($img_path)) {
+
+      mkdir($img_path);
+
+    }
+
+
+
+    $target_dir = $img_path;
+
+    $target_file = $target_dir.basename($_FILES['upload']['name']);
+
+    $uploadVerification = true;
+
+
+
+    if (file_exists($target_file)) {
+
+      $uploadVerification = false;
+
+      $ret = "Sorry. File already exists!";
+
+    }
+
+
+
+    //Check file for type
+
+    $file_type = $_FILES['upload']['type'];
+
+
+
+    switch ($file_type) {
+
+      case 'image/jpeg':
+
+        $uploadVerification = true;
+
+        break;
+
+      case 'image/png':
+
+        $uploadVerification = true;
+
+        break;
+
+      case 'image/gif':
+
+        $uploadVerification = true;
+
+        break;
+
+      case 'application/pdf':
+
+        $uploadVerification = true;
+
+        break;
+
+      default:
+
+        $uploadVerification = false;
+
+        $ret = "Sorry. Only .jpg, .png, gif, .pdf files are allowed";
+
+    }
+
+
+
+    if ($_FILES['upload']['size'] > 2000000) {
+
+      $uploadVerification = false;
+
+      $ret = "Sorry. File is too big";
+
+    }
+
+
+
+    if ($uploadVerification) {
+
+      move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+
+    }
+
+  }
+
+
+
+$sql = "UPDATE fm_users SET username = '$username', first_name = '$first_name', last_name = '$last_name', title = '$title', description = '$description', image_url = '$target_file' where fm_user_id = $user_id ";
+
 $conn->query($sql);
 
-$sql2 = "SELECT * FROM fm_users where email = '$email'";
-$result = $conn->query($sql2);
+$_SESSION['image_url'] = $target_file;
 
-while ($row = $result->fetch_assoc()) {
-$_SESSION['first_name'] = $row['first_name'];
-$_SESSION['last_name'] = $row['last_name'];
-$_SESSION['title'] = $row['title'];
-$_SESSION['description'] = $row['description'];
-}
 header('Location: profile.php');
+
+echo "test";
+
 }
-}
+
+
 ?>
 
 <!doctype html>
@@ -107,7 +240,7 @@ header('Location: profile.php');
 <div class="col-md-8 ml-auto mr-auto">
 <!-- ml-auto and mr-auto automatically move the div ogjects -->
 <h2 class="text-center">Edit Profile</h2>
-<form class="contact-form" action="" method="post">
+<form class="contact-form" action="" method="post" enctype="multipart/form-data">
 
 <div class="row">
  <div class="input-group">
@@ -148,6 +281,7 @@ header('Location: profile.php');
 </div>
 <label>Description</label>
 <textarea class="form-control" name="description" rows="4" placeholder="Tell everyone a little about you..."><?php echo $_SESSION['description'] ?></textarea>
+<input type="file" name="upload">
 <div class="row">
 <div class="col-md-4 ml-auto mr-auto text-center">
 <button class="btn btn-outline-default btn-round" name="update-btn">Update</button>
