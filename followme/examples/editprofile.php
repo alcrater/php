@@ -245,9 +245,6 @@ echo "test";
 <div class="row">
  <div class="input-group">
 <img src="<?php  echo  $_SESSION['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-<div class="col-md-6">
- <btn class="btn btn-outline-default btn-round" ><i class="fa fa-cog"></i><a href="newimage.php">Update Profile Image</a></btn>
-</div>
 </div>
 </div>
 
