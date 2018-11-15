@@ -12,7 +12,7 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-require('../../example/dbconnection.php');
+require('dbconnection.php');
 
 //pulled from login page
 
@@ -58,7 +58,7 @@ $user_id = $_SESSION['user_id'];
 
 if (isset($_FILES['upload'])) {
 
-    $img_path = "../assets/img/faces/$user_id/";
+    $img_path = "../assets/img/$user_id/";
 
     //checks to see if uploads directory exists
 
