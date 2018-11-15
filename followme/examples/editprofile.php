@@ -154,7 +154,7 @@ $sql = "UPDATE fm_users SET username = '$username', first_name = '$first_name', 
 
 $conn->query($sql);
 
-$_SESSION['image_url'] = $target_file;
+$_SESSION['img_url'] = $target_file;
 
 header('Location: profile.php');
 
@@ -243,7 +243,7 @@ echo "test";
 <form class="contact-form" action="" method="post" enctype="multipart/form-data">
 <div class="row">
  <div class="input-group">
-<img src="<?php  echo  $_SESSION['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+<img src="<?php  echo  $_SESSION['img_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 </div>
 </div>
 <div class="row">

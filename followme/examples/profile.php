@@ -117,7 +117,7 @@ $following_user_id[] = $row1[0];
   <div class="owner">
   <div class="avatar">
 <!--My image is not coming through, think I have the file path wrong in the database-->
-  <img src="<?php echo $_SESSION['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+  <img src="<?php echo $_SESSION['img_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
   </div>
     <div class="name">
         <h4 class="title"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?><br /></h4>
