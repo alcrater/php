@@ -58,7 +58,7 @@ $user_id = $_SESSION['user_id'];
 
 if (isset($_FILES['upload'])) {
 
-    $img_path = "..followme/assets/img/$user_id/";
+    $img_path = "../assets/img/faces/$user_id/";
 
     //checks to see if uploads directory exists
 
@@ -287,7 +287,7 @@ echo "test";
 
 <div class="row">
 <div class="col-md-4 ml-auto mr-auto text-center">
-<button class="btn btn-outline-default btn-round" name="update-btn">Update</button>
+<button class="btn btn-lg btn-fill" type="submit" name="submit">Submit Updates</button>
 </div>
 </div>
 </form>
