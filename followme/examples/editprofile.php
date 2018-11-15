@@ -58,7 +58,7 @@ $user_id = $_SESSION['user_id'];
 
 if (isset($_FILES['upload'])) {
 
-    $img_path = "../assets/img/$user_id/";
+    $img_path = "..followme/assets/img/$user_id/";
 
     //checks to see if uploads directory exists
 
