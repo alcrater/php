@@ -150,7 +150,7 @@ if (isset($_FILES['upload'])) {
 
 
 
-$sql = "UPDATE fm_users SET username = '$username', first_name = '$first_name', last_name = '$last_name', title = '$title', description = '$description', img_url = '$target_file' where fm_user_id = $user_id ";
+$sql = "UPDATE fm_users SET first_name = '$first_name', last_name = '$last_name', title = '$title', description = '$description', image_url = '$target_file' where fm_user_id = $user_id ";
 
 $conn->query($sql);
 
